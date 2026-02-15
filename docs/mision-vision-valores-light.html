@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA - Misión, Visión y Valores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* LIGHT MODE: Azul Noche + Terracota + Cian Eléctrico */
+            --bg-primary: #f8f9fa;           /* Fondo claro */
+            --bg-dark: #0d1117;              /* Azul Noche para textos */
+            --teal: #0099cc;                 /* Cian Eléctrico (más oscuro para contraste) */
+            --teal-soft: rgba(0, 153, 204, 0.10);
+            --teal-medium: rgba(0, 153, 204, 0.20);
+            --amber: #c45c3f;                /* Terracota - calidez mediterránea */
+            --amber-soft: rgba(196, 92, 63, 0.10);
+            --amber-medium: rgba(196, 92, 63, 0.20);
+            --text-primary: #0d1117;         /* Azul Noche */
+            --text-secondary: rgba(13, 17, 23, 0.75);
+            --text-muted: rgba(13, 17, 23, 0.5);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .glow-orb-1 {
+            width: 600px; height: 600px;
+            background: var(--teal);
+            opacity: 0.15;
+            top: -250px; right: -150px;
+        }
+        
+        .glow-orb-2 {
+            width: 500px; height: 500px;
+            background: var(--amber);
+            opacity: 0.12;
+            bottom: -200px; left: -150px;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        
+        .isotipo-animated {
+            width: 160px; height: 160px;
+            margin-bottom: 40px;
+        }
+        
+        .ring-1 { animation: pulse-ring 4s ease-in-out infinite; }
+        .ring-2 { animation: pulse-ring 4s ease-in-out infinite 0.5s; }
+        .ring-3 { animation: pulse-ring 4s ease-in-out infinite 1s; }
+        .core { animation: pulse-core 2s ease-in-out infinite; }
+        
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.03); }
+        }
+        
+        @keyframes pulse-core {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .hero-title {
+            font-size: clamp(56px, 12vw, 100px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+        
+        .hero-title .ia {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 1.15em;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(20px, 4vw, 28px);
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.6s;
+        }
+        
+        .hero-subtitle {
+            margin-top: 60px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s, bounce 2s ease-in-out infinite 2s;
+        }
+        
+        .scroll-indicator svg {
+            width: 36px; height: 36px;
+            stroke: var(--teal);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(12px); }
+        }
+        
+        /* ========== SECTIONS ========== */
+        .section {
+            min-height: 100vh;
+            padding: 120px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .section-content {
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+            padding: 12px 28px;
+            background: var(--teal-soft);
+            border-radius: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-label.amber { color: var(--amber); background: var(--amber-soft); }
+        .section.visible .section-label { opacity: 1; transform: translateY(0); }
+        
+        /* Glass card - LIGHT MODE */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(13, 17, 23, 0.08);
+            box-shadow: 0 4px 24px rgba(13, 17, 23, 0.06);
+            border-radius: 28px;
+            padding: 56px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .glass-card.teal-accent {
+            background: linear-gradient(135deg, var(--teal-soft) 0%, #ffffff 60%);
+            border-color: rgba(0, 153, 204, 0.2);
+        }
+        
+        .glass-card.amber-accent {
+            background: linear-gradient(135deg, var(--amber-soft) 0%, #ffffff 60%);
+            border-color: rgba(196, 92, 63, 0.2);
+        }
+        
+        .section.visible .glass-card { opacity: 1; transform: translateY(0); }
+        
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        
+        p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+        
+        .highlight { color: var(--teal); font-weight: 600; }
+        .highlight-amber { color: var(--amber); font-weight: 600; }
+        
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(13, 17, 23, 0.1);
+            flex-wrap: wrap;
+        }
+        
+        .stat { text-align: center; flex: 1; min-width: 140px; }
+        
+        .stat-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+        }
+        
+        .stat-value.amber { color: var(--amber); }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 12px;
+        }
+        
+        /* ========== JOURNEY - PROMINENT ========== */
+        .journey-section {
+            min-height: 100vh;
+            padding: 80px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .journey-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .journey-container {
+            background: linear-gradient(180deg, var(--amber-medium) 0%, var(--amber-soft) 30%, rgba(0,0,0,0.3) 100%);
+            border-radius: 32px;
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .journey-title {
+            font-size: 15px;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .journey-nodes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .journey-line {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            right: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--amber) 100%);
+            opacity: 0.3;
+            transform: translateY(-50%);
+        }
+        
+        .journey-node {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section.visible .journey-node { opacity: 1; transform: scale(1) translateY(0); }
+        .section.visible .journey-node:nth-child(2) { transition-delay: 0.2s; }
+        .section.visible .journey-node:nth-child(3) { transition-delay: 0.4s; }
+        .section.visible .journey-node:nth-child(4) { transition-delay: 0.6s; }
+        .section.visible .journey-node:nth-child(5) { transition-delay: 0.8s; }
+        
+        .node-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .node-circle:hover { transform: scale(1.1); }
+        
+        .node-circle.teal { background: var(--bg-primary); border: 3px solid var(--teal); }
+        .node-circle.amber { background: var(--bg-primary); border: 3px solid var(--amber); }
+        .node-circle.big { 
+            width: 110px; height: 110px;
+            background: var(--teal); 
+            border: 4px solid var(--amber);
+        }
+        
+        .node-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--teal);
+        }
+        
+        .node-circle.amber .node-title { color: var(--amber); }
+        .node-circle.big .node-title { color: var(--bg-primary); font-size: 20px; }
+        
+        .node-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        
+        .node-circle.big .node-sub { color: var(--bg-primary); }
+        
+        .node-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 120px;
+        }
+        
+        /* ========== VALUES - GRADIENT CARDS ========== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 24px;
+        }
+        
+        .value-card {
+            border-radius: 24px;
+            padding: 36px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+            cursor: default;
+        }
+        
+        .value-card:hover { transform: translateY(-8px) !important; }
+        
+        .section.visible .value-card { opacity: 1; transform: translateY(0); }
+        .section.visible .value-card:nth-child(1) { transition-delay: 0.15s; }
+        .section.visible .value-card:nth-child(2) { transition-delay: 0.25s; }
+        .section.visible .value-card:nth-child(3) { transition-delay: 0.35s; }
+        .section.visible .value-card:nth-child(4) { transition-delay: 0.45s; }
+        
+        /* LIGHT MODE value cards */
+        .value-card:nth-child(1) { background: #ffffff; border: 1px solid rgba(0, 153, 204, 0.2); border-top: 4px solid var(--teal); }
+        .value-card:nth-child(2) { background: #ffffff; border: 1px solid rgba(196, 92, 63, 0.2); border-top: 4px solid var(--amber); }
+        .value-card:nth-child(3) { background: #ffffff; border: 1px solid rgba(196, 92, 63, 0.15); border-top: 4px solid var(--amber); }
+        .value-card:nth-child(4) { background: #ffffff; border: 1px solid rgba(0, 153, 204, 0.15); border-top: 4px solid var(--teal); }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+            background: rgba(13, 17, 23, 0.05);
+        }
+        
+        .value-card:nth-child(1) .value-icon,
+        .value-card:nth-child(4) .value-icon { color: var(--teal); }
+        .value-card:nth-child(2) .value-icon,
+        .value-card:nth-child(3) .value-icon { color: var(--amber); }
+        
+        .value-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        
+        .value-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        /* ========== JOURNEY MOBILE ========== */
+        .journey-svg { display: block; }
+        .journey-mobile { display: none; }
+        
+        @media (max-width: 768px) {
+            .journey-svg { display: none; }
+            .journey-mobile { display: block; }
+            .journey-container { padding: 40px 24px; }
+        }
+        
+        .journey-mobile-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .journey-mobile-node {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .mobile-node-circle {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-primary);
+        }
+        
+        .mobile-node-circle.teal { border: 3px solid var(--teal); }
+        .mobile-node-circle.amber { border: 3px solid var(--amber); }
+        .mobile-node-circle.big { 
+            width: 80px; height: 80px; min-width: 80px;
+            background: var(--teal); 
+            border: 3px solid var(--amber);
+        }
+        
+        .mobile-node-circle .num {
+            font-family: 'Caveat', cursive;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .mobile-node-circle.teal .num { color: var(--teal); }
+        .mobile-node-circle.amber .num { color: var(--amber); }
+        .mobile-node-circle.big .num { color: var(--bg-primary); }
+        
+        .mobile-node-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .mobile-node-content .subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .mobile-node-content .quote {
+            font-family: 'Caveat', cursive;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .mobile-node-content.teal .quote { color: var(--teal); }
+        .mobile-node-content.amber .quote { color: var(--amber); }
+        
+        .mobile-node-details {
+            background: rgba(13, 17, 23, 0.03);
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+        
+        .mobile-node-details.teal { border-left: 3px solid var(--teal); }
+        .mobile-node-details.amber { border-left: 3px solid var(--amber); }
+        
+        .mobile-node-details ul {
+            list-style: none;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .mobile-node-details ul li {
+            margin-bottom: 4px;
+        }
+        
+        .mobile-node-details .highlight {
+            font-family: 'Caveat', cursive;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        .mobile-impact-stat {
+            text-align: center;
+            padding: 16px;
+            background: rgba(196,92,63,0.1);
+            border-radius: 12px;
+            margin-top: 8px;
+        }
+        
+        .mobile-impact-stat .number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--amber);
+        }
+        
+        .mobile-impact-stat .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 80px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(13, 17, 23, 0.1);
+        }
+        
+        .footer-logo {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .ia {
+            font-family: 'Caveat', cursive;
+            color: var(--teal);
+            font-size: 1.15em;
+        }
+        
+        .footer p { font-size: 15px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </div>
+        
+        <svg class="isotipo-animated" viewBox="0 0 100 100" fill="none">
+            <circle class="ring-1" cx="50" cy="50" r="45" stroke="#00d4ff" stroke-width="2" fill="none"/>
+            <circle class="ring-2" cx="50" cy="50" r="32" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+            <circle class="ring-3" cx="50" cy="50" r="18" stroke="#00d4ff" stroke-width="1" fill="none"/>
+            <circle class="core" cx="50" cy="50" r="7" fill="#c45c3f"/>
+        </svg>
+        
+        <h1 class="hero-title">Entend<span class="ia">IA</span></h1>
+        <p class="hero-tagline">"No esperamos al futuro. Lo construimos."</p>
+        <p class="hero-subtitle">Misión, Visión y Valores</p>
+        
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+    
+    <!-- MISIÓN -->
+    <section class="section" id="mission">
+        <div class="section-content">
+            <span class="section-label">Nuestra Misión</span>
+            <div class="glass-card teal-accent">
+                <h1>Potenciamos empresas para prosperar en la era de la IA</h1>
+                <p>Transformamos empresas españolas en <span class="highlight">organizaciones AI-first</span> mediante formación práctica y soluciones a medida. Nuestra misión es conectar las capacidades más avanzadas de IA con valor de negocio real.</p>
+                <p>Creemos que toda empresa merece acceso a la transformación con IA. Hacemos lo <span class="highlight-amber">complejo simple</span> y el futuro accesible.</p>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Semanas a resultados</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value amber">2-3</div>
+                        <div class="stat-label">Skills IA garantizados</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Garantía de devolución</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VISIÓN + JOURNEY -->
+    <section class="section journey-section" id="vision">
+        <div class="section-content" style="max-width: 1200px;">
+            <div class="journey-header">
+                <span class="section-label amber">Nuestra Visión</span>
+                <h1 style="margin-top: 20px;">Un futuro donde la IA amplifica el potencial humano</h1>
+                <p style="max-width: 700px; margin: 0 auto;">Para <span class="highlight-amber">2030</span>, queremos transformar <span class="highlight-amber">1.000 empresas</span> en organizaciones AI-first.</p>
+            </div>
+            
+            <!-- Journey OUTSIDE and BIGGER -->
+            <p style="font-family: 'Caveat', cursive; font-size: 28px; color: var(--teal); text-align: center; margin: 50px 0 20px;">"IA con cuidado, no solo IA con código" <span style="color: var(--amber);">♥</span></p>
+            <div class="journey-title" style="font-size: 18px; color: var(--teal); text-transform: uppercase; letter-spacing: 5px; text-align: center; margin-bottom: 40px; font-weight: 600;">El Viaje EntendIA</div>
+                
+                <!-- Excalidraw-style SVG Diagram (Desktop) - BIGGER -->
+                <svg class="journey-svg" viewBox="0 0 900 420" style="width: 100%; max-width: 1200px; height: auto; margin: 0 auto; display: block;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hand-drawn flow line -->
+                    <path d="M 100 140 
+                             C 160 138, 200 142, 280 140 
+                             C 360 138, 400 143, 480 140
+                             C 560 137, 600 142, 680 140
+                             C 760 138, 800 141, 820 140" 
+                          stroke="#00d4ff" 
+                          stroke-width="4" 
+                          fill="none" 
+                          stroke-linecap="round"
+                          stroke-dasharray="10 8"
+                          opacity="0.4"/>
+                    
+                    <!-- Arrows -->
+                    <path d="M 260 132 L 280 140 L 260 148" stroke="#00d4ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 460 132 L 480 140 L 460 148" stroke="#00d4ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 660 132 L 680 140 L 660 148" stroke="#00d4ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <!-- ETAPA 1: FORMACIÓN -->
+                    <g transform="translate(100, 140)">
+                        <circle cx="0" cy="0" r="55" fill="#ffffff" stroke="#00d4ff" stroke-width="4"/>
+                        <circle cx="0" cy="0" r="44" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.3"/>
+                        <!-- Graduation cap -->
+                        <path d="M -18 -5 L 0 -18 L 18 -5 L 0 8 Z" fill="#00d4ff" opacity="0.9"/>
+                        <path d="M 0 8 L 0 20" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M -12 10 L -12 22 Q 0 28 12 22 L 12 10" fill="none" stroke="#00d4ff" stroke-width="2"/>
+                        <text x="0" y="40" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="20" font-weight="600">01</text>
+                    </g>
+                    <text x="100" y="50" text-anchor="middle" fill="#0d1117" font-family="Inter" font-size="20" font-weight="700">FORMACIÓN</text>
+                    <text x="100" y="75" text-anchor="middle" fill="rgba(13,17,23,0.6)" font-family="Inter" font-size="14">5 semanas intensivas</text>
+                    <text x="100" y="230" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="20">"Enseñamos los fundamentos"</text>
+                    <!-- Details -->
+                    <g transform="translate(30, 250)">
+                        <rect x="0" y="0" width="140" height="105" rx="12" fill="rgba(0,212,255,0.08)" stroke="rgba(0,212,255,0.3)" stroke-width="1.5"/>
+                        <text x="70" y="28" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Auditoría Discovery</text>
+                        <text x="70" y="50" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Fundamentos IA</text>
+                        <text x="70" y="72" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Primeros Skills</text>
+                        <text x="70" y="97" text-anchor="middle" fill="#c45c3f" font-family="Caveat" font-size="17">2-3 skills funcionando!</text>
+                    </g>
+                    
+                    <!-- ETAPA 2: CONSULTORÍA -->
+                    <g transform="translate(300, 140)">
+                        <circle cx="0" cy="0" r="55" fill="#ffffff" stroke="#c45c3f" stroke-width="4"/>
+                        <circle cx="0" cy="0" r="44" fill="none" stroke="#c45c3f" stroke-width="2" opacity="0.3"/>
+                        <!-- Handshake -->
+                        <path d="M -15 0 Q -8 -14 0 0 Q 8 -14 15 0" fill="none" stroke="#c45c3f" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="-9" cy="10" r="5" fill="#c45c3f" opacity="0.7"/>
+                        <circle cx="9" cy="10" r="5" fill="#c45c3f" opacity="0.7"/>
+                        <text x="0" y="40" text-anchor="middle" fill="#c45c3f" font-family="Caveat" font-size="20" font-weight="600">02</text>
+                    </g>
+                    <text x="300" y="50" text-anchor="middle" fill="#0d1117" font-family="Inter" font-size="20" font-weight="700">CONSULTORÍA</text>
+                    <text x="300" y="75" text-anchor="middle" fill="rgba(13,17,23,0.6)" font-family="Inter" font-size="14">Partnership continuo</text>
+                    <text x="300" y="230" text-anchor="middle" fill="#c45c3f" font-family="Caveat" font-size="20">"Construimos juntos"</text>
+                    <!-- Details -->
+                    <g transform="translate(230, 250)">
+                        <rect x="0" y="0" width="140" height="105" rx="12" fill="rgba(196,92,63,0.08)" stroke="rgba(196,92,63,0.3)" stroke-width="1.5"/>
+                        <text x="70" y="28" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Soluciones a medida</text>
+                        <text x="70" y="50" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Soporte integración</text>
+                        <text x="70" y="72" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Mentoría de equipos</text>
+                        <text x="70" y="97" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="17">tu partner en IA</text>
+                    </g>
+                    
+                    <!-- ETAPA 3: ESCALA -->
+                    <g transform="translate(500, 140)">
+                        <circle cx="0" cy="0" r="55" fill="#ffffff" stroke="#00d4ff" stroke-width="4"/>
+                        <circle cx="0" cy="0" r="44" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.3"/>
+                        <!-- Rocket -->
+                        <path d="M 0 -18 L 10 8 L 0 0 L -10 8 Z" fill="#00d4ff"/>
+                        <path d="M -6 14 L 0 6 L 6 14" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M 0 14 L 0 24" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+                        <text x="0" y="40" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="20" font-weight="600">03</text>
+                    </g>
+                    <text x="500" y="50" text-anchor="middle" fill="#0d1117" font-family="Inter" font-size="20" font-weight="700">ESCALA</text>
+                    <text x="500" y="75" text-anchor="middle" fill="rgba(13,17,23,0.6)" font-family="Inter" font-size="14">Productos y Suscripciones</text>
+                    <text x="500" y="230" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="20">"Crecemos contigo"</text>
+                    <!-- Details -->
+                    <g transform="translate(430, 250)">
+                        <rect x="0" y="0" width="140" height="105" rx="12" fill="rgba(0,212,255,0.08)" stroke="rgba(0,212,255,0.3)" stroke-width="1.5"/>
+                        <text x="70" y="28" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Productos SaaS</text>
+                        <text x="70" y="50" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Suscripciones IA</text>
+                        <text x="70" y="72" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">Ingresos recurrentes</text>
+                        <text x="70" y="97" text-anchor="middle" fill="#c45c3f" font-family="Caveat" font-size="17">crecimiento predecible</text>
+                    </g>
+                    
+                    <!-- ETAPA 4: IMPACTO -->
+                    <g transform="translate(700, 140)">
+                        <circle cx="0" cy="0" r="68" fill="#00d4ff" stroke="#c45c3f" stroke-width="5"/>
+                        <circle cx="0" cy="0" r="55" fill="none" stroke="#0d1117" stroke-width="2.5" opacity="0.25"/>
+                        <!-- Star -->
+                        <path d="M 0 -22 L 5 -8 L 20 -8 L 9 3 L 13 18 L 0 9 L -13 18 L -9 3 L -20 -8 L -5 -8 Z" 
+                              fill="#ffffff" stroke="#c45c3f" stroke-width="1.5"/>
+                        <text x="0" y="48" text-anchor="middle" fill="#ffffff" font-family="Caveat" font-size="24" font-weight="700">04</text>
+                    </g>
+                    <text x="700" y="40" text-anchor="middle" fill="#0d1117" font-family="Inter" font-size="20" font-weight="700">IMPACTO</text>
+                    <text x="700" y="65" text-anchor="middle" fill="rgba(13,17,23,0.6)" font-family="Inter" font-size="14">Visión 2030</text>
+                    <text x="700" y="245" text-anchor="middle" fill="#c45c3f" font-family="Caveat" font-size="22" font-weight="600">"Cambiamos las reglas"</text>
+                    <!-- Impact metrics -->
+                    <g transform="translate(625, 265)">
+                        <rect x="0" y="0" width="150" height="95" rx="12" fill="rgba(196,92,63,0.15)" stroke="rgba(196,92,63,0.5)" stroke-width="2"/>
+                        <text x="75" y="35" text-anchor="middle" fill="#c45c3f" font-family="Inter" font-size="32" font-weight="700">+1000</text>
+                        <text x="75" y="58" text-anchor="middle" fill="rgba(13,17,23,0.85)" font-family="Inter" font-size="13" font-weight="500">empresas AI-first</text>
+                        <text x="75" y="82" text-anchor="middle" fill="#00d4ff" font-family="Caveat" font-size="18">para 2030</text>
+                    </g>
+                    
+                    <!-- Hand-drawn annotations -->
+                    <text x="200" y="125" fill="rgba(13,17,23,0.35)" font-family="Caveat" font-size="14" transform="rotate(-10, 200, 125)">primero humanos</text>
+                    <text x="600" y="125" fill="rgba(13,17,23,0.35)" font-family="Caveat" font-size="14" transform="rotate(8, 600, 125)">impacto real</text>
+                </svg>
+                
+                <!-- Mobile Version -->
+                <div class="journey-mobile">
+                    <div class="journey-mobile-grid">
+                        <!-- Formación -->
+                        <div class="journey-mobile-node">
+                            <div class="mobile-node-circle teal">
+                                <span class="num">01</span>
+                            </div>
+                            <div class="mobile-node-content teal">
+                                <h4>FORMACIÓN</h4>
+                                <p class="subtitle">5 semanas intensivas</p>
+                                <p class="quote">"Enseñamos los fundamentos"</p>
+                                <div class="mobile-node-details teal">
+                                    <ul>
+                                        <li>Auditoría Discovery</li>
+                                        <li>Fundamentos IA</li>
+                                        <li>Primeros Skills</li>
+                                    </ul>
+                                    <p class="highlight" style="color: var(--amber);">2-3 skills funcionando!</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Consultoría -->
+                        <div class="journey-mobile-node">
+                            <div class="mobile-node-circle amber">
+                                <span class="num">02</span>
+                            </div>
+                            <div class="mobile-node-content amber">
+                                <h4>CONSULTORÍA</h4>
+                                <p class="subtitle">Partnership continuo</p>
+                                <p class="quote">"Construimos juntos"</p>
+                                <div class="mobile-node-details amber">
+                                    <ul>
+                                        <li>Soluciones a medida</li>
+                                        <li>Soporte integración</li>
+                                        <li>Mentoría de equipos</li>
+                                    </ul>
+                                    <p class="highlight" style="color: var(--teal);">tu partner en IA</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Escala -->
+                        <div class="journey-mobile-node">
+                            <div class="mobile-node-circle teal">
+                                <span class="num">03</span>
+                            </div>
+                            <div class="mobile-node-content teal">
+                                <h4>ESCALA</h4>
+                                <p class="subtitle">Productos y Suscripciones</p>
+                                <p class="quote">"Crecemos contigo"</p>
+                                <div class="mobile-node-details teal">
+                                    <ul>
+                                        <li>Productos SaaS</li>
+                                        <li>Suscripciones IA</li>
+                                        <li>Ingresos recurrentes</li>
+                                    </ul>
+                                    <p class="highlight" style="color: var(--amber);">crecimiento predecible</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Impacto -->
+                        <div class="journey-mobile-node">
+                            <div class="mobile-node-circle big">
+                                <span class="num">04</span>
+                            </div>
+                            <div class="mobile-node-content amber">
+                                <h4>IMPACTO</h4>
+                                <p class="subtitle">Visión 2030</p>
+                                <p class="quote" style="color: var(--amber);">"Cambiamos las reglas"</p>
+                                <div class="mobile-impact-stat">
+                                    <div class="number">+1000</div>
+                                    <div class="label">empresas AI-first para 2030</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-family: 'Caveat', cursive; font-size: 20px; color: var(--text-muted); text-align: center; margin-top: 50px;">Cada paso es <span style="color: var(--amber);">práctico, medible y centrado en personas</span></p>
+        </div>
+    </section>
+    
+    <!-- VALORES -->
+    <section class="section" id="values">
+        <div class="section-content">
+            <span class="section-label">Nuestros Valores</span>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Resultados sobre Teoría</h3>
+                    <p>Medimos el éxito en resultados de negocio. Cada proyecto produce skills de IA funcionando en 5 semanas, o te devolvemos la inversión.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">○</div>
+                    <h3>Transparencia Radical</h3>
+                    <p>Sin cajas negras. Te enseñamos cómo funciona, por qué funciona y cómo evolucionarlo. El conocimiento se queda contigo.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">♥</div>
+                    <h3>IA Centrada en Personas</h3>
+                    <p>La IA debe amplificar a las personas, no reemplazarlas. Diseñamos soluciones que hacen a los equipos más efectivos y realizados.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Pragmatismo Ambicioso</h3>
+                    <p>Soñar a lo grande, ejecutar con pragmatismo. Cada solución está anclada en la realidad mientras construye hacia tu potencial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">Entend<span class="ia">IA</span></div>
+        <p>Servicios Digitales AI-First | 2026</p>
+    </footer>
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        
+        document.querySelectorAll('.section, .journey-section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
