@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA - Mission, Vision & Values</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #191C1F;
+            --bg-secondary: #1E2225;
+            --teal: #14B8A6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --amber: #E5B92B;
+            --amber-glow: rgba(229, 185, 43, 0.15);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--teal);
+            opacity: 0.15;
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--amber);
+            opacity: 0.1;
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -4s;
+        }
+        
+        .glow-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--teal);
+            opacity: 0.08;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.05); }
+            50% { transform: translate(-10px, 10px) scale(0.95); }
+            75% { transform: translate(-20px, -10px) scale(1.02); }
+        }
+        
+        /* Animated isotipo */
+        .hero-logo {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+        
+        .isotipo-animated {
+            width: 140px;
+            height: 140px;
+        }
+        
+        .isotipo-animated circle {
+            transform-origin: center;
+        }
+        
+        .ring-1 { animation: pulse-ring 3s ease-in-out infinite; }
+        .ring-2 { animation: pulse-ring 3s ease-in-out infinite 0.5s; }
+        .ring-3 { animation: pulse-ring 3s ease-in-out infinite 1s; }
+        .core { animation: pulse-core 2s ease-in-out infinite; }
+        
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.02); }
+        }
+        
+        @keyframes pulse-core {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .hero-title {
+            font-size: clamp(48px, 10vw, 80px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+        
+        .hero-title .ia {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 1.1em;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.6s;
+        }
+        
+        .hero-subtitle {
+            margin-top: 50px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s, bounce 2s ease-in-out infinite 2s;
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--teal);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        
+        /* ========== SECTIONS ========== */
+        .section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .section-content {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            padding: 10px 24px;
+            background: var(--teal-glow);
+            border-radius: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-label.amber { color: var(--amber); background: var(--amber-glow); }
+        
+        .section.visible .section-label { opacity: 1; transform: translateY(0); }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .glass-card.teal-glow {
+            border-color: rgba(20, 184, 166, 0.2);
+            box-shadow: 0 0 80px rgba(20, 184, 166, 0.1);
+        }
+        
+        .glass-card.amber-glow {
+            border-color: rgba(229, 185, 43, 0.2);
+            box-shadow: 0 0 80px rgba(229, 185, 43, 0.1);
+        }
+        
+        .section.visible .glass-card { opacity: 1; transform: translateY(0); }
+        
+        h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .highlight { color: var(--teal); font-weight: 500; }
+        .highlight-amber { color: var(--amber); font-weight: 500; }
+        
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        
+        .stat { text-align: center; flex: 1; min-width: 120px; }
+        
+        .stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+        }
+        
+        .stat-value.amber { color: var(--amber); }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        
+        /* Animated diagram */
+        .diagram-container {
+            margin-top: 40px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .diagram-title {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .journey-node {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+        
+        .section.visible .journey-node {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .section.visible .journey-node:nth-child(1) { transition-delay: 0.4s; }
+        .section.visible .journey-node:nth-child(2) { transition-delay: 0.6s; }
+        .section.visible .journey-node:nth-child(3) { transition-delay: 0.8s; }
+        .section.visible .journey-node:nth-child(4) { transition-delay: 1s; }
+        
+        /* ========== VALUES SECTION ========== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section.visible .value-card { opacity: 1; transform: translateY(0); }
+        .section.visible .value-card:nth-child(1) { transition-delay: 0.2s; }
+        .section.visible .value-card:nth-child(2) { transition-delay: 0.3s; }
+        .section.visible .value-card:nth-child(3) { transition-delay: 0.4s; }
+        .section.visible .value-card:nth-child(4) { transition-delay: 0.5s; }
+        
+        .value-card:nth-child(1) { border-top: 4px solid var(--teal); }
+        .value-card:nth-child(2) { border-top: 4px solid var(--amber); }
+        .value-card:nth-child(3) { border-top: 4px solid var(--amber); }
+        .value-card:nth-child(4) { border-top: 4px solid var(--teal); }
+        
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .value-card:nth-child(1) .value-icon,
+        .value-card:nth-child(4) .value-icon {
+            background: var(--teal-glow);
+            color: var(--teal);
+        }
+        
+        .value-card:nth-child(2) .value-icon,
+        .value-card:nth-child(3) .value-icon {
+            background: var(--amber-glow);
+            color: var(--amber);
+        }
+        
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .value-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo .ia {
+            font-family: 'Caveat', cursive;
+            color: var(--teal);
+            font-size: 1.1em;
+        }
+        
+        .footer p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+            <div class="glow-orb glow-orb-3"></div>
+        </div>
+        
+        <div class="hero-logo">
+            <svg class="isotipo-animated" viewBox="0 0 100 100" fill="none">
+                <circle class="ring-1" cx="50" cy="50" r="45" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.3"/>
+                <circle class="ring-2" cx="50" cy="50" r="32" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <circle class="ring-3" cx="50" cy="50" r="18" stroke="#14B8A6" stroke-width="1" fill="none" opacity="0.7"/>
+                <circle class="core" cx="50" cy="50" r="6" fill="#E5B92B"/>
+            </svg>
+        </div>
+        
+        <h1 class="hero-title">Entend<span class="ia">IA</span></h1>
+        <p class="hero-tagline">"We don't wait for the future. We build it."</p>
+        <p class="hero-subtitle">Mission, Vision & Values</p>
+        
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+    
+    <!-- MISSION -->
+    <section class="section" id="mission">
+        <div class="section-content">
+            <span class="section-label">Our Mission</span>
+            <div class="glass-card teal-glow">
+                <h1>Empowering businesses to thrive in the AI era</h1>
+                <p>We transform Spanish companies into <span class="highlight">AI-first organizations</span> through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value.</p>
+                <p>We believe every business deserves access to AI transformation. We make the <span class="highlight-amber">complex simple</span> and the future accessible.</p>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Weeks to results</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value amber">2-3</div>
+                        <div class="stat-label">AI Skills guaranteed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Money-back guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VISION -->
+    <section class="section" id="vision">
+        <div class="section-content">
+            <span class="section-label amber">Our Vision</span>
+            <div class="glass-card amber-glow">
+                <h1>A future where AI amplifies human potential</h1>
+                <p>We envision a business landscape where AI is not a threat but a <span class="highlight">catalyst for growth</span>. Where every employee is empowered, and every process is optimized for human-AI collaboration.</p>
+                <p>By <span class="highlight-amber">2030</span>, we aim to transform <span class="highlight-amber">1,000 Spanish companies</span> into AI-first organizations.</p>
+                
+                <div class="diagram-container">
+                    <div class="diagram-title">The EntendIA Journey</div>
+                    <svg viewBox="0 0 600 100" style="width: 100%; height: auto;">
+                        <path d="M70 50 L530 50" stroke="rgba(20, 184, 166, 0.3)" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+                        
+                        <g class="journey-node">
+                            <circle cx="70" cy="50" r="24" fill="#191C1F" stroke="#14B8A6" stroke-width="2"/>
+                            <text x="70" y="54" text-anchor="middle" fill="#14B8A6" font-size="11" font-family="Inter" font-weight="600">Today</text>
+                            <text x="70" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">Discovery</text>
+                        </g>
+                        
+                        <g class="journey-node">
+                            <circle cx="210" cy="50" r="24" fill="#191C1F" stroke="#E5B92B" stroke-width="2"/>
+                            <text x="210" y="54" text-anchor="middle" fill="#E5B92B" font-size="11" font-family="Inter" font-weight="600">5 wks</text>
+                            <text x="210" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">First Skills</text>
+                        </g>
+                        
+                        <g class="journey-node">
+                            <circle cx="350" cy="50" r="24" fill="#191C1F" stroke="#14B8A6" stroke-width="2"/>
+                            <text x="350" y="54" text-anchor="middle" fill="#14B8A6" font-size="11" font-family="Inter" font-weight="600">Scale</text>
+                            <text x="350" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">AI-First Org</text>
+                        </g>
+                        
+                        <g class="journey-node">
+                            <circle cx="490" cy="50" r="28" fill="#14B8A6" stroke="#E5B92B" stroke-width="3"/>
+                            <text x="490" y="54" text-anchor="middle" fill="#191C1F" font-size="12" font-family="Inter" font-weight="700">2030</text>
+                            <text x="490" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">1000 companies</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VALUES -->
+    <section class="section" id="values">
+        <div class="section-content">
+            <span class="section-label">Our Values</span>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">&#9889;</div>
+                    <h3>Results Over Theory</h3>
+                    <p>We measure success in business outcomes. Every engagement produces working AI skills within 5 weeks, or your investment back.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#9711;</div>
+                    <h3>Radical Transparency</h3>
+                    <p>No black boxes. We teach you how it works, why it works, and how to evolve it. Your knowledge stays with you.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#10084;</div>
+                    <h3>Human-Centered AI</h3>
+                    <p>AI should amplify people, not replace them. We design solutions that make teams more effective and fulfilled.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#10004;</div>
+                    <h3>Ambitious Pragmatism</h3>
+                    <p>Dream big, execute practically. Every solution is grounded in reality while building toward your potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">Entend<span class="ia">IA</span></div>
+        <p>AI-First Digital Services | 2026</p>
+    </footer>
+    
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
