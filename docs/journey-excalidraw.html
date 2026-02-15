@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA Journey - Founders View</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #191C1F;
+            --surface: #1E2225;
+            --teal: #14B8A6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --amber: #E5B92B;
+            --amber-glow: rgba(229, 185, 43, 0.15);
+            --white: #FFFFFF;
+            --muted: rgba(255, 255, 255, 0.7);
+            --muted-light: rgba(255, 255, 255, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            min-height: 100vh;
+            padding: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text .ia {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 38px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: var(--teal);
+            margin-top: 12px;
+        }
+        
+        /* Journey Container */
+        .journey-container {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .journey-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--teal);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+        }
+        
+        .journey-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .journey-title h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .journey-title p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+        
+        /* SVG Diagram */
+        .diagram {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Hand-drawn text style */
+        .hand {
+            font-family: 'Caveat', cursive;
+        }
+        
+        /* Footer note */
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-note p {
+            font-family: 'Caveat', cursive;
+            font-size: 20px;
+            color: var(--muted);
+        }
+        
+        .footer-note .highlight {
+            color: var(--amber);
+        }
+        
+        /* Founders badge */
+        .founders-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--amber-glow);
+            border: 1px solid rgba(229, 185, 43, 0.3);
+            color: var(--amber);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="42" stroke="#14B8A6" stroke-width="2.5" fill="none" opacity="0.4"/>
+                    <circle cx="50" cy="50" r="28" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="14" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.8"/>
+                    <circle cx="50" cy="50" r="5" fill="#E5B92B"/>
+                </svg>
+                <span class="logo-text">Entend<span class="ia">IA</span></span>
+            </div>
+            <div class="subtitle">Founders Internal</div>
+            <div class="tagline">"AI done right, with care"</div>
+        </div>
+        
+        <!-- Journey Diagram -->
+        <div class="journey-container">
+            <span class="founders-badge">Internal Doc</span>
+            
+            <div class="journey-title">
+                <h2>The EntendIA Journey</h2>
+                <p>From first contact to lasting impact</p>
+            </div>
+            
+            <svg class="diagram" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background grid (subtle, hand-drawn feel) -->
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="1000" height="500" fill="url(#grid)"/>
+                
+                <!-- Main flow line (hand-drawn style with slight wobble) -->
+                <path d="M 120 250 
+                         C 180 248, 220 252, 280 250 
+                         C 340 248, 380 253, 440 250
+                         C 500 247, 540 252, 600 250
+                         C 660 248, 700 251, 760 250
+                         C 820 249, 860 250, 900 250" 
+                      stroke="#14B8A6" 
+                      stroke-width="3" 
+                      fill="none" 
+                      stroke-linecap="round"
+                      stroke-dasharray="8 6"
+                      opacity="0.5"/>
+                
+                <!-- Arrow heads (hand-drawn) -->
+                <path d="M 270 244 L 285 250 L 270 256" stroke="#14B8A6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 430 244 L 445 250 L 430 256" stroke="#14B8A6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 590 244 L 605 250 L 590 256" stroke="#14B8A6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 750 244 L 765 250 L 750 256" stroke="#14B8A6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- ==================== STAGE 1: TRAINING ==================== -->
+                <g transform="translate(120, 250)">
+                    <!-- Node circle (hand-drawn wobble) -->
+                    <circle cx="0" cy="0" r="52" fill="#191C1F" stroke="#14B8A6" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="42" fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.4"/>
+                    
+                    <!-- Icon: graduation cap simplified -->
+                    <path d="M -15 -5 L 0 -15 L 15 -5 L 0 5 Z" fill="#14B8A6" opacity="0.9"/>
+                    <path d="M 0 5 L 0 15" stroke="#14B8A6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M -10 8 L -10 18 Q 0 23 10 18 L 10 8" fill="none" stroke="#14B8A6" stroke-width="1.5"/>
+                    
+                    <!-- Stage number -->
+                    <text x="0" y="35" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="18" font-weight="600">01</text>
+                </g>
+                
+                <!-- Training label and details -->
+                <text x="120" y="155" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="18" font-weight="700">TRAINING</text>
+                <text x="120" y="175" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="12">5 weeks intensive</text>
+                
+                <!-- Hand-drawn annotation -->
+                <text x="120" y="340" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="16">"We teach the foundations"</text>
+                
+                <!-- Sub-steps (hand-drawn boxes) -->
+                <g transform="translate(50, 370)">
+                    <rect x="0" y="0" width="140" height="90" rx="8" fill="rgba(20, 184, 166, 0.08)" stroke="rgba(20, 184, 166, 0.3)" stroke-width="1"/>
+                    <text x="70" y="25" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">Discovery Audit</text>
+                    <text x="70" y="45" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">AI Fundamentals</text>
+                    <text x="70" y="65" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">First Skills Built</text>
+                    <text x="70" y="85" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="13">2-3 working skills!</text>
+                </g>
+                
+                <!-- ==================== STAGE 2: CONSULTANCY ==================== -->
+                <g transform="translate(360, 250)">
+                    <!-- Node circle -->
+                    <circle cx="0" cy="0" r="52" fill="#191C1F" stroke="#E5B92B" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="42" fill="none" stroke="#E5B92B" stroke-width="1.5" opacity="0.4"/>
+                    
+                    <!-- Icon: handshake/partnership -->
+                    <path d="M -12 0 Q -6 -10 0 0 Q 6 -10 12 0" fill="none" stroke="#E5B92B" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="-8" cy="8" r="4" fill="#E5B92B" opacity="0.7"/>
+                    <circle cx="8" cy="8" r="4" fill="#E5B92B" opacity="0.7"/>
+                    
+                    <!-- Stage number -->
+                    <text x="0" y="35" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="18" font-weight="600">02</text>
+                </g>
+                
+                <!-- Consultancy label and details -->
+                <text x="360" y="155" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="18" font-weight="700">CONSULTANCY</text>
+                <text x="360" y="175" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="12">Ongoing partnership</text>
+                
+                <!-- Hand-drawn annotation -->
+                <text x="360" y="340" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="16">"We build together"</text>
+                
+                <!-- Sub-steps -->
+                <g transform="translate(290, 370)">
+                    <rect x="0" y="0" width="140" height="90" rx="8" fill="rgba(229, 185, 43, 0.08)" stroke="rgba(229, 185, 43, 0.3)" stroke-width="1"/>
+                    <text x="70" y="25" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">Custom Solutions</text>
+                    <text x="70" y="45" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">Integration Support</text>
+                    <text x="70" y="65" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">Team Mentoring</text>
+                    <text x="70" y="85" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="13">your AI partner</text>
+                </g>
+                
+                <!-- ==================== STAGE 3: SCALE ==================== -->
+                <g transform="translate(600, 250)">
+                    <!-- Node circle -->
+                    <circle cx="0" cy="0" r="52" fill="#191C1F" stroke="#14B8A6" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="42" fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.4"/>
+                    
+                    <!-- Icon: rocket/growth -->
+                    <path d="M 0 -15 L 8 5 L 0 0 L -8 5 Z" fill="#14B8A6"/>
+                    <path d="M -5 8 L 0 3 L 5 8" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M 0 8 L 0 15" stroke="#14B8A6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+                    
+                    <!-- Stage number -->
+                    <text x="0" y="35" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="18" font-weight="600">03</text>
+                </g>
+                
+                <!-- Scale label and details -->
+                <text x="600" y="155" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="18" font-weight="700">SCALE</text>
+                <text x="600" y="175" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="12">Products & Subscriptions</text>
+                
+                <!-- Hand-drawn annotation -->
+                <text x="600" y="340" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="16">"We grow with you"</text>
+                
+                <!-- Sub-steps -->
+                <g transform="translate(530, 370)">
+                    <rect x="0" y="0" width="140" height="90" rx="8" fill="rgba(20, 184, 166, 0.08)" stroke="rgba(20, 184, 166, 0.3)" stroke-width="1"/>
+                    <text x="70" y="25" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">SaaS Products</text>
+                    <text x="70" y="45" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">AI Subscriptions</text>
+                    <text x="70" y="65" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">Recurring Revenue</text>
+                    <text x="70" y="85" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="13">predictable growth</text>
+                </g>
+                
+                <!-- ==================== STAGE 4: IMPACT ==================== -->
+                <g transform="translate(840, 250)">
+                    <!-- Node circle (larger, final destination) -->
+                    <circle cx="0" cy="0" r="60" fill="#14B8A6" stroke="#E5B92B" stroke-width="4"/>
+                    <circle cx="0" cy="0" r="50" fill="none" stroke="#191C1F" stroke-width="2" opacity="0.3"/>
+                    
+                    <!-- Icon: star/impact -->
+                    <path d="M 0 -18 L 4 -6 L 16 -6 L 6 2 L 10 14 L 0 6 L -10 14 L -6 2 L -16 -6 L -4 -6 Z" 
+                          fill="#191C1F" stroke="#E5B92B" stroke-width="1"/>
+                    
+                    <!-- Stage number -->
+                    <text x="0" y="40" text-anchor="middle" fill="#191C1F" font-family="Caveat" font-size="20" font-weight="700">04</text>
+                </g>
+                
+                <!-- Impact label and details -->
+                <text x="840" y="145" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="18" font-weight="700">IMPACT</text>
+                <text x="840" y="165" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="12">Vision 2030</text>
+                
+                <!-- Hand-drawn annotation (emphasis) -->
+                <text x="840" y="345" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="18" font-weight="600">"We change the game"</text>
+                
+                <!-- Impact metrics -->
+                <g transform="translate(770, 370)">
+                    <rect x="0" y="0" width="140" height="90" rx="8" fill="rgba(229, 185, 43, 0.12)" stroke="rgba(229, 185, 43, 0.4)" stroke-width="1.5"/>
+                    <text x="70" y="30" text-anchor="middle" fill="#E5B92B" font-family="Inter" font-size="22" font-weight="700">+1000</text>
+                    <text x="70" y="50" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="11" font-weight="500">companies AI-first</text>
+                    <text x="70" y="75" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="15">by 2030</text>
+                </g>
+                
+                <!-- ==================== ANNOTATIONS ==================== -->
+                
+                <!-- Top annotation: AI with care -->
+                <g transform="translate(500, 60)">
+                    <path d="M 350 0 Q 380 -20, 420 -5" stroke="#14B8A6" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.6"/>
+                    <text x="0" y="0" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="22">
+                        AI with care, not just AI with code
+                    </text>
+                    <!-- Small heart -->
+                    <path d="M 180 -5 C 180 -10, 190 -10, 190 -5 C 190 0, 180 8, 180 8 C 180 8, 170 0, 170 -5 C 170 -10, 180 -10, 180 -5" 
+                          fill="#E5B92B" transform="scale(0.8)"/>
+                </g>
+                
+                <!-- Revenue model annotation -->
+                <g transform="translate(480, 100)">
+                    <rect x="0" y="0" width="180" height="28" rx="14" fill="rgba(20, 184, 166, 0.1)" stroke="rgba(20, 184, 166, 0.3)" stroke-width="1"/>
+                    <text x="90" y="19" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter" font-size="11">Revenue: Training → MRR</text>
+                </g>
+                
+                <!-- Human touch indicators -->
+                <text x="240" y="230" fill="rgba(255,255,255,0.4)" font-family="Caveat" font-size="14" transform="rotate(-15, 240, 230)">humans first</text>
+                <text x="720" y="230" fill="rgba(255,255,255,0.4)" font-family="Caveat" font-size="14" transform="rotate(10, 720, 230)">real impact</text>
+                
+            </svg>
+            
+            <div class="footer-note">
+                <p>Every step is <span class="highlight">hands-on, measurable, and human-centered</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
