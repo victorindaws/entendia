@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EntendIA - Mission, Vision & Values</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-        
         :root {
-            --bg-primary: #191C1F;
-            --bg-secondary: #1E2225;
+            --bg: #191C1F;
+            --surface: #1E2225;
             --bg-card: rgba(255, 255, 255, 0.03);
             --teal: #14B8A6;
             --teal-glow: rgba(20, 184, 166, 0.15);
             --amber: #E5B92B;
             --amber-glow: rgba(229, 185, 43, 0.15);
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.5);
+            --white: #FFFFFF;
+            --muted: rgba(255, 255, 255, 0.7);
+            --muted-light: rgba(255, 255, 255, 0.5);
             --border: rgba(255, 255, 255, 0.08);
+            --border-teal: rgba(20, 184, 166, 0.3);
+            --border-amber: rgba(229, 185, 43, 0.3);
         }
         
         * {
@@ -31,121 +29,129 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--white);
             line-height: 1.6;
         }
         
-        /* Page for PDF */
+        /* Page container - A4 style */
         .page {
             width: 210mm;
-            height: 297mm;
+            min-height: 297mm;
             padding: 20mm;
             margin: 0 auto;
-            background: var(--bg-primary);
+            background: var(--bg);
             position: relative;
             overflow: hidden;
-            page-break-after: always;
-            display: flex;
-            flex-direction: column;
         }
         
-        .page:last-child {
-            page-break-after: avoid;
+        .page + .page {
+            page-break-before: always;
         }
         
         /* Background decoration */
         .bg-glow {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.4;
+            filter: blur(120px);
+            opacity: 0.25;
             pointer-events: none;
         }
         
-        .bg-glow-teal { background: var(--teal); top: -100px; right: -50px; }
-        .bg-glow-amber { background: var(--amber); bottom: -100px; left: -50px; opacity: 0.25; }
+        .bg-glow-teal {
+            background: var(--teal);
+            top: -150px;
+            right: -100px;
+        }
         
-        /* Content wrapper */
-        .content {
+        .bg-glow-amber {
+            background: var(--amber);
+            bottom: -150px;
+            left: -100px;
+            opacity: 0.15;
+        }
+        
+        /* Logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
             position: relative;
             z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
         }
         
-        /* ========== PAGE 1: COVER ========== */
-        .cover-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .logo-container {
+            display: inline-flex;
             align-items: center;
-            text-align: center;
+            gap: 14px;
         }
         
-        .logo-large {
-            margin-bottom: 40px;
+        .isotipo {
+            width: 48px;
+            height: 48px;
         }
         
-        .isotipo-large {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 30px;
-        }
-        
-        .logo-text-large {
-            font-family: 'Inter', sans-serif;
+        .logo-text {
             font-weight: 700;
-            font-size: 72px;
-            color: var(--text-primary);
-            letter-spacing: -0.03em;
+            font-size: 36px;
+            letter-spacing: -0.02em;
         }
         
-        /* IA in cursive using SVG path for PDF compatibility */
-        .ia-cursive {
+        .logo-text .ia {
             font-family: 'Caveat', cursive;
             font-weight: 600;
             color: var(--teal);
-            font-size: 80px;
+            font-size: 42px;
         }
         
-        .tagline-large {
+        .tagline {
+            font-family: 'Caveat', cursive;
             font-size: 20px;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-top: 24px;
-            font-weight: 300;
+            color: var(--teal);
+            margin-top: 8px;
         }
         
-        .cover-subtitle {
-            margin-top: 60px;
-            font-size: 14px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 4px;
+        /* Glass Card */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            z-index: 1;
         }
         
-        /* ========== PAGE 2: MISSION ========== */
-        .section-header {
-            margin-bottom: 30px;
+        .glass-card.teal-accent {
+            border-color: var(--border-teal);
+            background: linear-gradient(135deg, var(--teal-glow) 0%, transparent 60%);
+        }
+        
+        .glass-card.amber-accent {
+            border-color: var(--border-amber);
+            background: linear-gradient(135deg, var(--amber-glow) 0%, transparent 60%);
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
         }
         
         .section-label {
             display: inline-block;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             color: var(--teal);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-            padding: 8px 20px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            padding: 5px 12px;
             background: var(--teal-glow);
-            border-radius: 30px;
+            border-radius: 20px;
         }
         
         .section-label.amber {
@@ -153,135 +159,66 @@
             background: var(--amber-glow);
         }
         
-        .glass-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,255,255,0.01) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
-        .glass-card.teal-glow {
-            border-color: rgba(20, 184, 166, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 60px rgba(20, 184, 166, 0.1);
-        }
-        
-        .glass-card.amber-glow {
-            border-color: rgba(229, 185, 43, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 60px rgba(229, 185, 43, 0.1);
-        }
-        
-        h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-        
         h2 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-primary);
+            margin-bottom: 12px;
             letter-spacing: -0.02em;
         }
         
         p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            line-height: 1.8;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            line-height: 1.7;
         }
         
-        p:last-child { margin-bottom: 0; }
-        
-        .highlight { color: var(--teal); font-weight: 500; }
-        .highlight-amber { color: var(--amber); font-weight: 500; }
-        
-        /* Key stats */
-        .stats-row {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-        }
-        
-        .stat {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .stat-value {
-            font-size: 36px;
-            font-weight: 700;
+        .highlight {
             color: var(--teal);
-            line-height: 1;
+            font-weight: 500;
         }
         
-        .stat-value.amber { color: var(--amber); }
-        
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 8px;
+        .highlight-amber {
+            color: var(--amber);
+            font-weight: 500;
         }
         
-        /* ========== PAGE 3: VISION ========== */
-        .diagram-container {
-            margin-top: 30px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 16px;
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-        }
-        
-        .diagram-title {
-            font-size: 11px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        /* ========== PAGE 4: VALUES ========== */
+        /* Values Grid */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            flex: 1;
+            gap: 14px;
         }
         
         .value-card {
             background: var(--bg-card);
-            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            display: flex;
-            flex-direction: column;
+            border-radius: 12px;
+            padding: 18px;
         }
         
-        .value-card:nth-child(1) { border-top: 4px solid var(--teal); }
-        .value-card:nth-child(2) { border-top: 4px solid var(--amber); }
-        .value-card:nth-child(3) { border-top: 4px solid var(--amber); }
-        .value-card:nth-child(4) { border-top: 4px solid var(--teal); }
+        .value-card:nth-child(1) { border-top: 3px solid var(--teal); }
+        .value-card:nth-child(2) { border-top: 3px solid var(--amber); }
+        .value-card:nth-child(3) { border-top: 3px solid var(--amber); }
+        .value-card:nth-child(4) { border-top: 3px solid var(--teal); }
+        
+        .value-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         
         .value-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-bottom: 16px;
+            font-size: 14px;
         }
         
         .value-card:nth-child(1) .value-icon,
@@ -296,178 +233,333 @@
             color: var(--amber);
         }
         
-        .value-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        
         .value-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            flex: 1;
+            font-size: 12px;
+            margin-bottom: 0;
         }
         
-        /* Footer */
-        .page-footer {
-            margin-top: auto;
-            padding-top: 20px;
+        /* Page 2: Journey */
+        .journey-header {
             text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .journey-header h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .journey-header p {
+            font-size: 14px;
+        }
+        
+        .journey-annotation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .journey-annotation p {
+            font-family: 'Caveat', cursive;
+            font-size: 22px;
+            color: var(--teal);
+        }
+        
+        .journey-diagram {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .journey-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
             border-top: 1px solid var(--border);
         }
         
-        .page-footer p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin: 0;
+        .journey-footer p {
+            font-family: 'Caveat', cursive;
+            font-size: 18px;
+            color: var(--muted);
+        }
+        
+        .journey-footer .highlight-amber {
+            color: var(--amber);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer p {
+            font-size: 10px;
+            color: var(--muted-light);
+        }
+        
+        .footer .brand {
+            color: var(--teal);
+            font-weight: 500;
         }
         
         /* Print styles */
         @media print {
-            body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            .page { margin: 0; box-shadow: none; }
-            .bg-glow { display: none; }
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .page {
+                padding: 15mm;
+                page-break-after: always;
+            }
+            
+            .bg-glow {
+                display: none;
+            }
+        }
+        
+        /* Hand-drawn text */
+        .hand {
+            font-family: 'Caveat', cursive;
         }
     </style>
 </head>
 <body>
-    <!-- ========== PAGE 1: COVER ========== -->
+    <!-- ==================== PAGE 1: Mission, Vision, Values ==================== -->
     <div class="page">
         <div class="bg-glow bg-glow-teal"></div>
         <div class="bg-glow bg-glow-amber"></div>
-        <div class="content cover-content">
-            <div class="logo-large">
-                <svg class="isotipo-large" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="45" stroke="#14B8A6" stroke-width="2.5" fill="none" opacity="0.3"/>
-                    <circle cx="50" cy="50" r="32" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.5"/>
-                    <circle cx="50" cy="50" r="18" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.7"/>
-                    <circle cx="50" cy="50" r="6" fill="#E5B92B"/>
+        
+        <!-- Logo -->
+        <div class="logo">
+            <div class="logo-container">
+                <svg class="isotipo" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="42" stroke="#14B8A6" stroke-width="2.5" fill="none" opacity="0.4"/>
+                    <circle cx="50" cy="50" r="28" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="14" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.8"/>
+                    <circle cx="50" cy="50" r="5" fill="#E5B92B"/>
                 </svg>
-                <div class="logo-text-large">Entend<span class="ia-cursive">IA</span></div>
+                <span class="logo-text">Entend<span class="ia">IA</span></span>
             </div>
-            <div class="tagline-large">"We don't wait for the future. We build it."</div>
-            <div class="cover-subtitle">Mission, Vision & Values</div>
+            <div class="tagline">"We don't wait for the future. We build it."</div>
         </div>
-        <div class="page-footer">
-            <p>2026</p>
-        </div>
-    </div>
-    
-    <!-- ========== PAGE 2: MISSION ========== -->
-    <div class="page">
-        <div class="bg-glow bg-glow-teal" style="top: 50%; right: -100px;"></div>
-        <div class="content">
-            <div class="section-header">
-                <span class="section-label">Our Mission</span>
-            </div>
-            <div class="glass-card teal-glow">
-                <h1>Empowering businesses to thrive in the AI era</h1>
-                <p>We transform Spanish companies into <span class="highlight">AI-first organizations</span> through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value.</p>
-                <p>We believe every business deserves access to AI transformation, regardless of their technical background. We make the <span class="highlight-amber">complex simple</span> and the future accessible.</p>
-                <p>We deliver <span class="highlight">measurable results in weeks</span>, not years. Every engagement produces working AI skills that stay with your team forever.</p>
-                
-                <div class="stats-row">
-                    <div class="stat">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Weeks to results</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value amber">2-3</div>
-                        <div class="stat-label">AI Skills guaranteed</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Money-back guarantee</div>
-                    </div>
-                </div>
+        
+        <!-- Mission -->
+        <div class="section">
+            <span class="section-label">Mission</span>
+            <div class="glass-card teal-accent">
+                <h2>Empowering businesses to thrive in the AI era</h2>
+                <p>We transform companies into <span class="highlight">AI-first organizations</span> through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value.</p>
+                <p>We deliver <span class="highlight-amber">measurable results in 5 weeks</span>, not years. Every engagement produces working AI skills that stay with you.</p>
             </div>
         </div>
-        <div class="page-footer">
-            <p>EntendIA | Mission, Vision & Values</p>
-        </div>
-    </div>
-    
-    <!-- ========== PAGE 3: VISION ========== -->
-    <div class="page">
-        <div class="bg-glow bg-glow-amber" style="top: 30%; left: -100px;"></div>
-        <div class="content">
-            <div class="section-header">
-                <span class="section-label amber">Our Vision</span>
-            </div>
-            <div class="glass-card amber-glow">
-                <h1>A future where AI amplifies human potential</h1>
-                <p>We envision a business landscape where AI is not a threat but a <span class="highlight">catalyst for growth</span>, creativity, and innovation. Where every employee is empowered with AI skills, and every process is optimized for maximum human-AI collaboration.</p>
-                <p>By <span class="highlight-amber">2030</span>, we aim to have transformed <span class="highlight-amber">1,000 Spanish companies</span> into AI-first organizations, creating a new generation of digitally empowered businesses that lead their industries.</p>
-                
-                <div class="diagram-container">
-                    <div class="diagram-title">The EntendIA Journey</div>
-                    <svg viewBox="0 0 600 100" style="width: 100%; height: auto;">
-                        <!-- Connection line -->
-                        <path d="M70 50 C120 50, 150 50, 200 50 S280 50, 330 50 S410 50, 460 50 S540 50, 560 50" 
-                              stroke="rgba(20, 184, 166, 0.3)" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
-                        
-                        <!-- Node 1: Today -->
-                        <circle cx="70" cy="50" r="24" fill="#191C1F" stroke="#14B8A6" stroke-width="2"/>
-                        <text x="70" y="54" text-anchor="middle" fill="#14B8A6" font-size="11" font-family="Inter" font-weight="600">Today</text>
-                        <text x="70" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">Discovery</text>
-                        
-                        <!-- Node 2: 5 Weeks -->
-                        <circle cx="200" cy="50" r="24" fill="#191C1F" stroke="#E5B92B" stroke-width="2"/>
-                        <text x="200" y="54" text-anchor="middle" fill="#E5B92B" font-size="11" font-family="Inter" font-weight="600">5 wks</text>
-                        <text x="200" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">First Skills</text>
-                        
-                        <!-- Node 3: Scale -->
-                        <circle cx="330" cy="50" r="24" fill="#191C1F" stroke="#14B8A6" stroke-width="2"/>
-                        <text x="330" y="54" text-anchor="middle" fill="#14B8A6" font-size="11" font-family="Inter" font-weight="600">Scale</text>
-                        <text x="330" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">AI-First Org</text>
-                        
-                        <!-- Node 4: 2030 -->
-                        <circle cx="460" cy="50" r="28" fill="#14B8A6" stroke="#E5B92B" stroke-width="3"/>
-                        <text x="460" y="54" text-anchor="middle" fill="#191C1F" font-size="12" font-family="Inter" font-weight="700">2030</text>
-                        <text x="460" y="88" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter">1000 companies</text>
-                    </svg>
-                </div>
+        
+        <!-- Vision -->
+        <div class="section">
+            <span class="section-label amber">Vision</span>
+            <div class="glass-card amber-accent">
+                <h2>A future where AI amplifies human potential</h2>
+                <p>We envision a business landscape where AI is not a threat but a <span class="highlight">catalyst for growth</span>. Where every employee is empowered, and every process is optimized for human-AI collaboration.</p>
+                <p>By 2030, we will have helped <span class="highlight-amber">+1000 companies</span> become AI-first.</p>
             </div>
         </div>
-        <div class="page-footer">
-            <p>EntendIA | Mission, Vision & Values</p>
-        </div>
-    </div>
-    
-    <!-- ========== PAGE 4: VALUES ========== -->
-    <div class="page">
-        <div class="bg-glow bg-glow-teal" style="bottom: 0; right: -50px;"></div>
-        <div class="bg-glow bg-glow-amber" style="top: 0; left: -50px; opacity: 0.15;"></div>
-        <div class="content">
-            <div class="section-header">
-                <span class="section-label">Our Values</span>
-            </div>
+        
+        <!-- Values -->
+        <div class="section">
+            <span class="section-label">Our Values</span>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">&#9889;</div>
-                    <h3>Results Over Theory</h3>
-                    <p>We measure success in business outcomes, not technical jargon. Every engagement produces working AI skills within 5 weeks, or your investment back. No slides, no reports—just working solutions.</p>
+                    <h3><span class="value-icon">&#9889;</span>Results Over Theory</h3>
+                    <p>Working AI skills within 5 weeks, or your investment back.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">&#9711;</div>
-                    <h3>Radical Transparency</h3>
-                    <p>No black boxes, no mystery. We teach you how it works, why it works, and how to evolve it. Your AI knowledge stays with you long after we're gone. We transfer capability, not dependency.</p>
+                    <h3><span class="value-icon">&#9711;</span>Radical Transparency</h3>
+                    <p>No black boxes. Your AI knowledge stays with you.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">&#10084;</div>
-                    <h3>Human-Centered AI</h3>
-                    <p>AI should amplify people, not replace them. We design solutions that make teams more effective, creative, and fulfilled in their work. Technology serves humans, never the reverse.</p>
+                    <h3><span class="value-icon">&#10084;</span>Human-Centered AI</h3>
+                    <p>AI should amplify people, not replace them.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">&#10004;</div>
-                    <h3>Ambitious Pragmatism</h3>
-                    <p>We dream big but execute practically. Every solution is grounded in your current reality while building toward your future potential. Bold vision, practical steps.</p>
+                    <h3><span class="value-icon">&#10004;</span>Ambitious Pragmatism</h3>
+                    <p>Dream big, execute practically.</p>
                 </div>
             </div>
         </div>
-        <div class="page-footer">
-            <p>EntendIA | AI-First Digital Services | 2026</p>
+        
+        <div class="footer">
+            <p><span class="brand">EntendIA</span> &nbsp;|&nbsp; AI-First Digital Services &nbsp;|&nbsp; 2026</p>
+        </div>
+    </div>
+    
+    <!-- ==================== PAGE 2: The Journey ==================== -->
+    <div class="page">
+        <div class="bg-glow bg-glow-teal" style="top: 50%; right: -150px;"></div>
+        <div class="bg-glow bg-glow-amber" style="bottom: 20%; left: -150px;"></div>
+        
+        <!-- Logo small -->
+        <div class="logo" style="margin-bottom: 20px;">
+            <div class="logo-container">
+                <svg class="isotipo" viewBox="0 0 100 100" fill="none" style="width: 36px; height: 36px;">
+                    <circle cx="50" cy="50" r="42" stroke="#14B8A6" stroke-width="2.5" fill="none" opacity="0.4"/>
+                    <circle cx="50" cy="50" r="28" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="14" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.8"/>
+                    <circle cx="50" cy="50" r="5" fill="#E5B92B"/>
+                </svg>
+                <span class="logo-text" style="font-size: 28px;">Entend<span class="ia" style="font-size: 32px;">IA</span></span>
+            </div>
+        </div>
+        
+        <div class="journey-header">
+            <span class="section-label">The Journey</span>
+            <h2>From Training to Impact</h2>
+            <p style="color: var(--muted);">How we transform companies into AI-first organizations</p>
+        </div>
+        
+        <div class="journey-annotation">
+            <p>"AI with care, not just AI with code" <span style="color: var(--amber);">&#10084;</span></p>
+        </div>
+        
+        <div class="journey-diagram">
+            <svg viewBox="0 0 640 400" style="width: 100%; height: auto;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background subtle grid -->
+                <defs>
+                    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="640" height="400" fill="url(#grid)"/>
+                
+                <!-- Main flow line (hand-drawn wobble) -->
+                <path d="M 80 180 
+                         C 120 178, 150 182, 200 180 
+                         C 250 178, 280 183, 320 180
+                         C 360 177, 390 182, 440 180
+                         C 490 178, 520 181, 560 180" 
+                      stroke="#14B8A6" 
+                      stroke-width="2.5" 
+                      fill="none" 
+                      stroke-linecap="round"
+                      stroke-dasharray="6 5"
+                      opacity="0.4"/>
+                
+                <!-- Arrows -->
+                <path d="M 190 175 L 202 180 L 190 185" stroke="#14B8A6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M 310 175 L 322 180 L 310 185" stroke="#14B8A6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M 430 175 L 442 180 L 430 185" stroke="#14B8A6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                
+                <!-- ========== STAGE 1: TRAINING ========== -->
+                <g transform="translate(80, 180)">
+                    <circle cx="0" cy="0" r="38" fill="#191C1F" stroke="#14B8A6" stroke-width="2.5"/>
+                    <circle cx="0" cy="0" r="30" fill="none" stroke="#14B8A6" stroke-width="1" opacity="0.3"/>
+                    <!-- Graduation cap icon -->
+                    <path d="M -12 -4 L 0 -12 L 12 -4 L 0 4 Z" fill="#14B8A6" opacity="0.85"/>
+                    <path d="M 0 4 L 0 12" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M -8 6 L -8 14 Q 0 18 8 14 L 8 6" fill="none" stroke="#14B8A6" stroke-width="1.2"/>
+                    <text x="0" y="28" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="14" font-weight="600">01</text>
+                </g>
+                <text x="80" y="105" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700">TRAINING</text>
+                <text x="80" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="10">5 weeks intensive</text>
+                <text x="80" y="245" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="13">"We teach the foundations"</text>
+                
+                <!-- Training details box -->
+                <g transform="translate(30, 260)">
+                    <rect x="0" y="0" width="100" height="75" rx="8" fill="rgba(20,184,166,0.06)" stroke="rgba(20,184,166,0.25)" stroke-width="1"/>
+                    <text x="50" y="20" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">Discovery Audit</text>
+                    <text x="50" y="36" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">AI Fundamentals</text>
+                    <text x="50" y="52" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">First Skills Built</text>
+                    <text x="50" y="70" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="11">2-3 working skills!</text>
+                </g>
+                
+                <!-- ========== STAGE 2: CONSULTANCY ========== -->
+                <g transform="translate(240, 180)">
+                    <circle cx="0" cy="0" r="38" fill="#191C1F" stroke="#E5B92B" stroke-width="2.5"/>
+                    <circle cx="0" cy="0" r="30" fill="none" stroke="#E5B92B" stroke-width="1" opacity="0.3"/>
+                    <!-- Handshake icon -->
+                    <path d="M -10 0 Q -5 -8 0 0 Q 5 -8 10 0" fill="none" stroke="#E5B92B" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="-6" cy="6" r="3.5" fill="#E5B92B" opacity="0.7"/>
+                    <circle cx="6" cy="6" r="3.5" fill="#E5B92B" opacity="0.7"/>
+                    <text x="0" y="28" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="14" font-weight="600">02</text>
+                </g>
+                <text x="240" y="105" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700">CONSULTANCY</text>
+                <text x="240" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="10">Ongoing partnership</text>
+                <text x="240" y="245" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="13">"We build together"</text>
+                
+                <!-- Consultancy details box -->
+                <g transform="translate(190, 260)">
+                    <rect x="0" y="0" width="100" height="75" rx="8" fill="rgba(229,185,43,0.06)" stroke="rgba(229,185,43,0.25)" stroke-width="1"/>
+                    <text x="50" y="20" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">Custom Solutions</text>
+                    <text x="50" y="36" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">Integration Support</text>
+                    <text x="50" y="52" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">Team Mentoring</text>
+                    <text x="50" y="70" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="11">your AI partner</text>
+                </g>
+                
+                <!-- ========== STAGE 3: SCALE ========== -->
+                <g transform="translate(400, 180)">
+                    <circle cx="0" cy="0" r="38" fill="#191C1F" stroke="#14B8A6" stroke-width="2.5"/>
+                    <circle cx="0" cy="0" r="30" fill="none" stroke="#14B8A6" stroke-width="1" opacity="0.3"/>
+                    <!-- Rocket icon -->
+                    <path d="M 0 -12 L 6 4 L 0 0 L -6 4 Z" fill="#14B8A6"/>
+                    <path d="M -4 6 L 0 2 L 4 6" fill="none" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M 0 6 L 0 12" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+                    <text x="0" y="28" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="14" font-weight="600">03</text>
+                </g>
+                <text x="400" y="105" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700">SCALE</text>
+                <text x="400" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="10">Products & Subscriptions</text>
+                <text x="400" y="245" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="13">"We grow with you"</text>
+                
+                <!-- Scale details box -->
+                <g transform="translate(350, 260)">
+                    <rect x="0" y="0" width="100" height="75" rx="8" fill="rgba(20,184,166,0.06)" stroke="rgba(20,184,166,0.25)" stroke-width="1"/>
+                    <text x="50" y="20" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">SaaS Products</text>
+                    <text x="50" y="36" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">AI Subscriptions</text>
+                    <text x="50" y="52" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">Recurring Revenue</text>
+                    <text x="50" y="70" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="11">predictable growth</text>
+                </g>
+                
+                <!-- ========== STAGE 4: IMPACT ========== -->
+                <g transform="translate(560, 180)">
+                    <circle cx="0" cy="0" r="44" fill="#14B8A6" stroke="#E5B92B" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="36" fill="none" stroke="#191C1F" stroke-width="1.5" opacity="0.25"/>
+                    <!-- Star icon -->
+                    <path d="M 0 -14 L 3 -5 L 12 -5 L 5 1 L 8 10 L 0 5 L -8 10 L -5 1 L -12 -5 L -3 -5 Z" 
+                          fill="#191C1F" stroke="#E5B92B" stroke-width="0.8"/>
+                    <text x="0" y="30" text-anchor="middle" fill="#191C1F" font-family="Caveat" font-size="16" font-weight="700">04</text>
+                </g>
+                <text x="560" y="100" text-anchor="middle" fill="#FFFFFF" font-family="Inter" font-size="14" font-weight="700">IMPACT</text>
+                <text x="560" y="117" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="10">Vision 2030</text>
+                <text x="560" y="250" text-anchor="middle" fill="#E5B92B" font-family="Caveat" font-size="14" font-weight="600">"We change the game"</text>
+                
+                <!-- Impact metrics box -->
+                <g transform="translate(510, 265)">
+                    <rect x="0" y="0" width="100" height="70" rx="8" fill="rgba(229,185,43,0.1)" stroke="rgba(229,185,43,0.35)" stroke-width="1.5"/>
+                    <text x="50" y="24" text-anchor="middle" fill="#E5B92B" font-family="Inter" font-size="18" font-weight="700">+1000</text>
+                    <text x="50" y="42" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="9" font-weight="500">companies AI-first</text>
+                    <text x="50" y="60" text-anchor="middle" fill="#14B8A6" font-family="Caveat" font-size="12">by 2030</text>
+                </g>
+                
+                <!-- Top annotation -->
+                <text x="320" y="55" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="Inter" font-size="9">Revenue Model: Training → MRR</text>
+                
+                <!-- Hand-drawn human touch labels -->
+                <text x="160" y="165" fill="rgba(255,255,255,0.3)" font-family="Caveat" font-size="11" transform="rotate(-12, 160, 165)">humans first</text>
+                <text x="480" y="165" fill="rgba(255,255,255,0.3)" font-family="Caveat" font-size="11" transform="rotate(8, 480, 165)">real impact</text>
+            </svg>
+        </div>
+        
+        <div class="journey-footer">
+            <p>Every step is <span class="highlight-amber">hands-on, measurable, and human-centered</span></p>
+        </div>
+        
+        <div class="footer" style="margin-top: 20px;">
+            <p><span class="brand">EntendIA</span> &nbsp;|&nbsp; AI-First Digital Services &nbsp;|&nbsp; 2026</p>
         </div>
     </div>
 </body>
