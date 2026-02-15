@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA - Mission, Vision & Values</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #191C1F;
+            --bg-secondary: #1E2225;
+            --teal: #14B8A6;
+            --teal-dark: #0D9488;
+            --amber: #E5B92B;
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 40mm 25mm;
+            margin: 0 auto;
+            background: var(--bg-primary);
+        }
+        
+        /* Logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text .ia {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 52px;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        
+        .section-content {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        
+        .section-content.highlight {
+            border-left: 4px solid var(--teal);
+        }
+        
+        .section-content.amber-highlight {
+            border-left: 4px solid var(--amber);
+        }
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .value-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .value-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .value-card h3::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--amber);
+            border-radius: 50%;
+        }
+        
+        .value-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .page {
+                padding: 20mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="logo-text">Entend<span class="ia">IA</span></div>
+            <div class="tagline">"We don't wait for the future. We build it."</div>
+        </div>
+        
+        <!-- Mission -->
+        <div class="section">
+            <div class="section-title">Our Mission</div>
+            <div class="section-content highlight">
+                <h2>Empowering businesses to thrive in the AI era</h2>
+                <p>We transform Spanish companies into AI-first organizations through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value, delivering measurable results in weeks, not years.</p>
+                <p>We believe every business deserves access to AI transformation, regardless of their technical background. We make the complex simple and the future accessible.</p>
+            </div>
+        </div>
+        
+        <!-- Vision -->
+        <div class="section">
+            <div class="section-title">Our Vision</div>
+            <div class="section-content amber-highlight">
+                <h2>A future where AI amplifies human potential</h2>
+                <p>We envision a business landscape where AI is not a threat but a catalyst for growth, creativity, and innovation. Where every employee is empowered with AI skills, and every process is optimized for maximum human-AI collaboration.</p>
+                <p>By 2030, we aim to have transformed 1,000 Spanish companies into AI-first organizations, creating a new generation of digitally empowered businesses that lead their industries.</p>
+            </div>
+        </div>
+        
+        <!-- Values -->
+        <div class="section">
+            <div class="section-title">Our Values</div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Results Over Theory</h3>
+                    <p>We measure success in business outcomes, not technical jargon. Every engagement produces working AI skills within 5 weeks, or your investment back.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Radical Transparency</h3>
+                    <p>No black boxes, no mystery. We teach you how it works, why it works, and how to evolve it. Your AI knowledge stays with you.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Human-Centered AI</h3>
+                    <p>AI should amplify people, not replace them. We design solutions that make teams more effective, creative, and fulfilled in their work.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Ambitious Pragmatism</h3>
+                    <p>We dream big but execute practically. Every solution is grounded in your current reality while building toward your future potential.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>EntendIA - AI-First Digital Services</p>
+            <p>2026</p>
+        </div>
+    </div>
+</body>
+</html>
