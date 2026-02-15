@@ -1,0 +1,9 @@
+Departamento,Tarea,Responsable,Personas,Horas/Semana,Automatizable,Valor Eficiencia EUR,Valor Crecimiento EUR,Prioridad,Notas
+Comercial,Preparar propuestas comerciales,Luis,3,15,Alto,64800,50000,Quick Win,Cada propuesta tarda 2h. Con templates + IA podria ser 30min.
+Finanzas,Conciliacion bancaria manual,Merche,1,8,Alto,11520,0,Quick Win,Proceso repetitivo. Automatizable con conexion bancaria.
+Soporte,Responder consultas repetitivas,Ana,2,20,Alto,57600,30000,Quick Win,40% de consultas son FAQ. Chatbot liberaria tiempo para upselling.
+Operaciones,Gestion de pedidos multicanal,Jose,2,25,Alto,72000,80000,Estrategico,Pedidos llegan por WhatsApp/email/telefono. Unificar en sistema.
+Marketing,Creacion de contenido redes,David,1,10,Medio,14400,25000,Estrategico,Contenido manual. Con IA podria triplicar produccion.
+RRHH,Onboarding nuevos empleados,Carmen,1,6,Medio,8640,15000,Futuro,Proceso manual de 2 semanas. Podria ser 1 semana con automatizacion.
+IT,Soporte basico a usuarios,Pedro,1,12,Alto,17280,10000,Quick Win,Reset passwords y preguntas basicas. Self-service reduciria 80%.
+Direccion,Preparar informes mensuales,CEO,1,8,Alto,17280,100000,Estrategico,8h mensuales en recopilar datos. Dashboard automatico liberaria para estrategia.

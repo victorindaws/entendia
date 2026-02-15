@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- EntendIA v2.1 - Logo Stacked Dark (para fondos oscuros) -->
+  <!-- "Entend" en Inter Bold + "IA" en Caveat (cursivo) -->
+  
+  <!-- Google Fonts Caveat embedded -->
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;family=Inter:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  
+  <!-- Isotipo centrado - Portal con teal más claro #14B8A6 -->
+  <g transform="translate(46, 0)">
+    <!-- Anillo exterior - Teal claro -->
+    <circle cx="24" cy="24" r="20" stroke="#14B8A6" stroke-width="3" fill="none"/>
+    <!-- Anillo medio -->
+    <circle cx="24" cy="24" r="13" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.7"/>
+    <!-- Centro - Amber -->
+    <circle cx="24" cy="24" r="6" fill="#E5B92B"/>
+  </g>
+  
+  <!-- Wordmark centrado debajo -->
+  <!-- "Entend" en blanco, Inter Bold -->
+  <text x="70" y="72" text-anchor="middle" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">
+    <tspan>Entend</tspan>
+  </text>
+  
+  <!-- "IA" en cursivo Caveat, desplazado para que fluya -->
+  <text x="110" y="74" font-family="'Caveat', cursive" font-size="26" font-weight="600" fill="#14B8A6" font-style="italic" letter-spacing="1">IA</text>
+  
+</svg>

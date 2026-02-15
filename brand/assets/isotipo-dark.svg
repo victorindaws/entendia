@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>EntendIA Isotipo v2.1 - Dark Mode</title>
+  <!-- Portal con teal más claro #14B8A6 - para fondos oscuros -->
+  <!-- Anillo exterior - Teal claro -->
+  <circle cx="32" cy="32" r="28" stroke="#14B8A6" stroke-width="4" fill="none"/>
+  <!-- Anillo medio -->
+  <circle cx="32" cy="32" r="18" stroke="#14B8A6" stroke-width="3" fill="none" opacity="0.7"/>
+  <!-- Centro - Amber -->
+  <circle cx="32" cy="32" r="8" fill="#E5B92B"/>
+</svg>
