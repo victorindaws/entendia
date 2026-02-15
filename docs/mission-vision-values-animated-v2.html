@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA - Mission, Vision & Values</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #191C1F;
+            --teal: #14B8A6;
+            --teal-soft: rgba(20, 184, 166, 0.12);
+            --teal-medium: rgba(20, 184, 166, 0.25);
+            --amber: #E5B92B;
+            --amber-soft: rgba(229, 185, 43, 0.12);
+            --amber-medium: rgba(229, 185, 43, 0.25);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --text-muted: rgba(255, 255, 255, 0.5);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .glow-orb-1 {
+            width: 600px; height: 600px;
+            background: var(--teal);
+            opacity: 0.12;
+            top: -250px; right: -150px;
+        }
+        
+        .glow-orb-2 {
+            width: 500px; height: 500px;
+            background: var(--amber);
+            opacity: 0.08;
+            bottom: -200px; left: -150px;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        
+        .isotipo-animated {
+            width: 160px; height: 160px;
+            margin-bottom: 40px;
+        }
+        
+        .ring-1 { animation: pulse-ring 4s ease-in-out infinite; }
+        .ring-2 { animation: pulse-ring 4s ease-in-out infinite 0.5s; }
+        .ring-3 { animation: pulse-ring 4s ease-in-out infinite 1s; }
+        .core { animation: pulse-core 2s ease-in-out infinite; }
+        
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.03); }
+        }
+        
+        @keyframes pulse-core {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .hero-title {
+            font-size: clamp(56px, 12vw, 100px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+        
+        .hero-title .ia {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 1.15em;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(20px, 4vw, 28px);
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 300;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.6s;
+        }
+        
+        .hero-subtitle {
+            margin-top: 60px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s, bounce 2s ease-in-out infinite 2s;
+        }
+        
+        .scroll-indicator svg {
+            width: 36px; height: 36px;
+            stroke: var(--teal);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(12px); }
+        }
+        
+        /* ========== SECTIONS ========== */
+        .section {
+            min-height: 100vh;
+            padding: 120px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .section-content {
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+            padding: 12px 28px;
+            background: var(--teal-soft);
+            border-radius: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-label.amber { color: var(--amber); background: var(--amber-soft); }
+        .section.visible .section-label { opacity: 1; transform: translateY(0); }
+        
+        /* Glass card - NO BORDERS, gradient backgrounds */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(24px);
+            border-radius: 28px;
+            padding: 56px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .glass-card.teal-accent {
+            background: linear-gradient(135deg, var(--teal-medium) 0%, var(--teal-soft) 40%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        .glass-card.amber-accent {
+            background: linear-gradient(135deg, var(--amber-medium) 0%, var(--amber-soft) 40%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        .section.visible .glass-card { opacity: 1; transform: translateY(0); }
+        
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        
+        p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+        
+        .highlight { color: var(--teal); font-weight: 600; }
+        .highlight-amber { color: var(--amber); font-weight: 600; }
+        
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+        
+        .stat { text-align: center; flex: 1; min-width: 140px; }
+        
+        .stat-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+        }
+        
+        .stat-value.amber { color: var(--amber); }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 12px;
+        }
+        
+        /* ========== JOURNEY - PROMINENT ========== */
+        .journey-section {
+            min-height: 100vh;
+            padding: 80px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .journey-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .journey-container {
+            background: linear-gradient(180deg, var(--amber-medium) 0%, var(--amber-soft) 30%, rgba(0,0,0,0.3) 100%);
+            border-radius: 32px;
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .journey-title {
+            font-size: 15px;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .journey-nodes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .journey-line {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            right: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal) 0%, var(--amber) 100%);
+            opacity: 0.3;
+            transform: translateY(-50%);
+        }
+        
+        .journey-node {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section.visible .journey-node { opacity: 1; transform: scale(1) translateY(0); }
+        .section.visible .journey-node:nth-child(2) { transition-delay: 0.2s; }
+        .section.visible .journey-node:nth-child(3) { transition-delay: 0.4s; }
+        .section.visible .journey-node:nth-child(4) { transition-delay: 0.6s; }
+        .section.visible .journey-node:nth-child(5) { transition-delay: 0.8s; }
+        
+        .node-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .node-circle:hover { transform: scale(1.1); }
+        
+        .node-circle.teal { background: var(--bg-primary); border: 3px solid var(--teal); }
+        .node-circle.amber { background: var(--bg-primary); border: 3px solid var(--amber); }
+        .node-circle.big { 
+            width: 110px; height: 110px;
+            background: var(--teal); 
+            border: 4px solid var(--amber);
+        }
+        
+        .node-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--teal);
+        }
+        
+        .node-circle.amber .node-title { color: var(--amber); }
+        .node-circle.big .node-title { color: var(--bg-primary); font-size: 20px; }
+        
+        .node-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        
+        .node-circle.big .node-sub { color: var(--bg-primary); }
+        
+        .node-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 120px;
+        }
+        
+        /* ========== VALUES - GRADIENT CARDS ========== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 24px;
+        }
+        
+        .value-card {
+            border-radius: 24px;
+            padding: 36px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+            cursor: default;
+        }
+        
+        .value-card:hover { transform: translateY(-8px) !important; }
+        
+        .section.visible .value-card { opacity: 1; transform: translateY(0); }
+        .section.visible .value-card:nth-child(1) { transition-delay: 0.15s; }
+        .section.visible .value-card:nth-child(2) { transition-delay: 0.25s; }
+        .section.visible .value-card:nth-child(3) { transition-delay: 0.35s; }
+        .section.visible .value-card:nth-child(4) { transition-delay: 0.45s; }
+        
+        /* Gradient backgrounds instead of borders */
+        .value-card:nth-child(1) { background: linear-gradient(135deg, var(--teal-medium) 0%, var(--teal-soft) 100%); }
+        .value-card:nth-child(2) { background: linear-gradient(135deg, var(--amber-medium) 0%, var(--amber-soft) 100%); }
+        .value-card:nth-child(3) { background: linear-gradient(135deg, var(--amber-soft) 0%, rgba(255,255,255,0.03) 100%); }
+        .value-card:nth-child(4) { background: linear-gradient(135deg, var(--teal-soft) 0%, rgba(255,255,255,0.03) 100%); }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+            background: rgba(0,0,0,0.25);
+        }
+        
+        .value-card:nth-child(1) .value-icon,
+        .value-card:nth-child(4) .value-icon { color: var(--teal); }
+        .value-card:nth-child(2) .value-icon,
+        .value-card:nth-child(3) .value-icon { color: var(--amber); }
+        
+        .value-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        
+        .value-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 80px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .footer-logo {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .ia {
+            font-family: 'Caveat', cursive;
+            color: var(--teal);
+            font-size: 1.15em;
+        }
+        
+        .footer p { font-size: 15px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </div>
+        
+        <svg class="isotipo-animated" viewBox="0 0 100 100" fill="none">
+            <circle class="ring-1" cx="50" cy="50" r="45" stroke="#14B8A6" stroke-width="2" fill="none"/>
+            <circle class="ring-2" cx="50" cy="50" r="32" stroke="#14B8A6" stroke-width="1.5" fill="none"/>
+            <circle class="ring-3" cx="50" cy="50" r="18" stroke="#14B8A6" stroke-width="1" fill="none"/>
+            <circle class="core" cx="50" cy="50" r="7" fill="#E5B92B"/>
+        </svg>
+        
+        <h1 class="hero-title">Entend<span class="ia">IA</span></h1>
+        <p class="hero-tagline">"We don't wait for the future. We build it."</p>
+        <p class="hero-subtitle">Mission, Vision & Values</p>
+        
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+    
+    <!-- MISSION -->
+    <section class="section" id="mission">
+        <div class="section-content">
+            <span class="section-label">Our Mission</span>
+            <div class="glass-card teal-accent">
+                <h1>Empowering businesses to thrive in the AI era</h1>
+                <p>We transform Spanish companies into <span class="highlight">AI-first organizations</span> through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value.</p>
+                <p>We believe every business deserves access to AI transformation. We make the <span class="highlight-amber">complex simple</span> and the future accessible.</p>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Weeks to results</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value amber">2-3</div>
+                        <div class="stat-label">AI Skills guaranteed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Money-back guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VISION + BIG JOURNEY -->
+    <section class="section journey-section" id="vision">
+        <div class="section-content">
+            <div class="journey-header">
+                <span class="section-label amber">Our Vision</span>
+                <h1 style="margin-top: 20px;">A future where AI amplifies human potential</h1>
+                <p style="max-width: 700px; margin: 0 auto;">By <span class="highlight-amber">2030</span>, we aim to transform <span class="highlight-amber">1,000 Spanish companies</span> into AI-first organizations.</p>
+            </div>
+            
+            <div class="journey-container">
+                <div class="journey-title">The EntendIA Journey</div>
+                <div class="journey-nodes">
+                    <div class="journey-line"></div>
+                    
+                    <div class="journey-node">
+                        <div class="node-circle teal">
+                            <span class="node-title">TODAY</span>
+                            <span class="node-sub">Discovery</span>
+                        </div>
+                        <p class="node-label">Audit your AI readiness</p>
+                    </div>
+                    
+                    <div class="journey-node">
+                        <div class="node-circle amber">
+                            <span class="node-title">5 WKS</span>
+                            <span class="node-sub">First Skills</span>
+                        </div>
+                        <p class="node-label">Working AI solutions</p>
+                    </div>
+                    
+                    <div class="journey-node">
+                        <div class="node-circle teal">
+                            <span class="node-title">SCALE</span>
+                            <span class="node-sub">AI-First</span>
+                        </div>
+                        <p class="node-label">Transform your team</p>
+                    </div>
+                    
+                    <div class="journey-node">
+                        <div class="node-circle big">
+                            <span class="node-title">2030</span>
+                            <span class="node-sub">1000 cos.</span>
+                        </div>
+                        <p class="node-label">Industry leaders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VALUES -->
+    <section class="section" id="values">
+        <div class="section-content">
+            <span class="section-label">Our Values</span>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Results Over Theory</h3>
+                    <p>We measure success in business outcomes. Every engagement produces working AI skills within 5 weeks, or your investment back.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">○</div>
+                    <h3>Radical Transparency</h3>
+                    <p>No black boxes. We teach you how it works, why it works, and how to evolve it. Your knowledge stays with you.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">♥</div>
+                    <h3>Human-Centered AI</h3>
+                    <p>AI should amplify people, not replace them. We design solutions that make teams more effective and fulfilled.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Ambitious Pragmatism</h3>
+                    <p>Dream big, execute practically. Every solution is grounded in reality while building toward your potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">Entend<span class="ia">IA</span></div>
+        <p>AI-First Digital Services | 2026</p>
+    </footer>
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        
+        document.querySelectorAll('.section, .journey-section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
