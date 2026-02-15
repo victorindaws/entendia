@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntendIA - Mission, Vision & Values</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-primary: #191C1F;
+            --bg-secondary: #1E2225;
+            --teal: #14B8A6;
+            --teal-soft: rgba(20, 184, 166, 0.12);
+            --teal-medium: rgba(20, 184, 166, 0.25);
+            --amber: #E5B92B;
+            --amber-soft: rgba(229, 185, 43, 0.12);
+            --amber-medium: rgba(229, 185, 43, 0.25);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --text-muted: rgba(255, 255, 255, 0.5);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page:last-child { page-break-after: avoid; }
+        
+        /* Background glow */
+        .bg-glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        
+        .bg-glow-teal { background: var(--teal); }
+        .bg-glow-amber { background: var(--amber); opacity: 0.25; }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* ========== PAGE 1: COVER ========== */
+        .cover-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .isotipo-large {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 30px;
+        }
+        
+        .logo-text-large {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 72px;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+        
+        .ia-cursive {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            color: var(--teal);
+            font-size: 82px;
+        }
+        
+        .tagline-large {
+            font-size: 22px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 24px;
+            font-weight: 300;
+        }
+        
+        .cover-subtitle {
+            margin-top: 70px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        
+        /* ========== SECTIONS ========== */
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            padding: 10px 24px;
+            background: var(--teal-soft);
+            border-radius: 30px;
+        }
+        
+        .section-label.amber {
+            color: var(--amber);
+            background: var(--amber-soft);
+        }
+        
+        /* Glass card - NO BORDERS */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 44px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glass-card.teal-accent {
+            background: linear-gradient(135deg, var(--teal-medium) 0%, var(--teal-soft) 50%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        .glass-card.amber-accent {
+            background: linear-gradient(135deg, var(--amber-medium) 0%, var(--amber-soft) 50%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        p:last-child { margin-bottom: 0; }
+        
+        .highlight { color: var(--teal); font-weight: 600; }
+        .highlight-amber { color: var(--amber); font-weight: 600; }
+        
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 36px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .stat { text-align: center; flex: 1; }
+        
+        .stat-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+        }
+        
+        .stat-value.amber { color: var(--amber); }
+        
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        
+        /* ========== PAGE 3: VISION + BIG JOURNEY ========== */
+        .journey-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .journey-card {
+            background: linear-gradient(180deg, var(--amber-medium) 0%, var(--amber-soft) 30%, rgba(255,255,255,0.02) 100%);
+            border-radius: 24px;
+            padding: 36px;
+            margin-bottom: 24px;
+        }
+        
+        .journey-diagram {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(20,184,166,0.08) 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .journey-title {
+            font-size: 13px;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .journey-svg {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+        }
+        
+        /* ========== PAGE 4: VALUES - NO BORDER CARDS ========== */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .value-card {
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Different background colors instead of borders */
+        .value-card:nth-child(1) {
+            background: linear-gradient(135deg, var(--teal-medium) 0%, var(--teal-soft) 100%);
+        }
+        .value-card:nth-child(2) {
+            background: linear-gradient(135deg, var(--amber-medium) 0%, var(--amber-soft) 100%);
+        }
+        .value-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--amber-soft) 0%, rgba(255,255,255,0.03) 100%);
+        }
+        .value-card:nth-child(4) {
+            background: linear-gradient(135deg, var(--teal-soft) 0%, rgba(255,255,255,0.03) 100%);
+        }
+        
+        .value-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 18px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .value-card:nth-child(1) .value-icon,
+        .value-card:nth-child(4) .value-icon { color: var(--teal); }
+        .value-card:nth-child(2) .value-icon,
+        .value-card:nth-child(3) .value-icon { color: var(--amber); }
+        
+        .value-card h3 {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .value-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            flex: 1;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        .page-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            text-align: center;
+        }
+        
+        .page-footer p {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        @media print {
+            body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .page { margin: 0; box-shadow: none; }
+            .bg-glow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1: COVER -->
+    <div class="page">
+        <div class="bg-glow bg-glow-teal" style="top: -100px; right: -80px;"></div>
+        <div class="bg-glow bg-glow-amber" style="bottom: -100px; left: -80px;"></div>
+        <div class="content cover-content">
+            <svg class="isotipo-large" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="45" stroke="#14B8A6" stroke-width="2.5" fill="none" opacity="0.3"/>
+                <circle cx="50" cy="50" r="32" stroke="#14B8A6" stroke-width="2" fill="none" opacity="0.5"/>
+                <circle cx="50" cy="50" r="18" stroke="#14B8A6" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <circle cx="50" cy="50" r="6" fill="#E5B92B"/>
+            </svg>
+            <div class="logo-text-large">Entend<span class="ia-cursive">IA</span></div>
+            <div class="tagline-large">"We don't wait for the future. We build it."</div>
+            <div class="cover-subtitle">Mission, Vision & Values</div>
+        </div>
+        <div class="page-footer"><p>2026</p></div>
+    </div>
+    
+    <!-- PAGE 2: MISSION -->
+    <div class="page">
+        <div class="bg-glow bg-glow-teal" style="top: 30%; right: -120px;"></div>
+        <div class="content">
+            <span class="section-label">Our Mission</span>
+            <div class="glass-card teal-accent">
+                <h1>Empowering businesses to thrive in the AI era</h1>
+                <p>We transform Spanish companies into <span class="highlight">AI-first organizations</span> through practical training and custom solutions. Our mission is to bridge the gap between cutting-edge AI capabilities and real business value.</p>
+                <p>We believe every business deserves access to AI transformation. We make the <span class="highlight-amber">complex simple</span> and the future accessible. We deliver <span class="highlight">measurable results in weeks</span>, not years.</p>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Weeks to results</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value amber">2-3</div>
+                        <div class="stat-label">AI Skills guaranteed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Money-back guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer"><p>EntendIA | Mission, Vision & Values</p></div>
+    </div>
+    
+    <!-- PAGE 3: VISION + PROMINENT JOURNEY -->
+    <div class="page">
+        <div class="bg-glow bg-glow-amber" style="top: 0; left: -100px;"></div>
+        <div class="content journey-section">
+            <span class="section-label amber">Our Vision</span>
+            
+            <div class="journey-card">
+                <h1 style="font-size: 32px; margin-bottom: 16px;">A future where AI amplifies human potential</h1>
+                <p style="margin: 0;">By <span class="highlight-amber">2030</span>, we aim to transform <span class="highlight-amber">1,000 Spanish companies</span> into AI-first organizations, creating a new generation of digitally empowered businesses.</p>
+            </div>
+            
+            <div class="journey-diagram">
+                <div class="journey-title">The EntendIA Journey</div>
+                <svg class="journey-svg" viewBox="0 0 700 160" preserveAspectRatio="xMidYMid meet">
+                    <!-- Connection line -->
+                    <path d="M80 80 L620 80" stroke="rgba(20, 184, 166, 0.4)" stroke-width="3" fill="none" stroke-dasharray="12,6"/>
+                    
+                    <!-- Node 1: Today -->
+                    <circle cx="80" cy="80" r="36" fill="#191C1F" stroke="#14B8A6" stroke-width="3"/>
+                    <text x="80" y="76" text-anchor="middle" fill="#14B8A6" font-size="14" font-family="Inter" font-weight="700">TODAY</text>
+                    <text x="80" y="92" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter">Discovery</text>
+                    <text x="80" y="135" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" font-family="Inter">Audit your AI readiness</text>
+                    
+                    <!-- Node 2: 5 Weeks -->
+                    <circle cx="260" cy="80" r="36" fill="#191C1F" stroke="#E5B92B" stroke-width="3"/>
+                    <text x="260" y="76" text-anchor="middle" fill="#E5B92B" font-size="14" font-family="Inter" font-weight="700">5 WEEKS</text>
+                    <text x="260" y="92" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter">First Skills</text>
+                    <text x="260" y="135" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" font-family="Inter">Working AI solutions</text>
+                    
+                    <!-- Node 3: Scale -->
+                    <circle cx="440" cy="80" r="36" fill="#191C1F" stroke="#14B8A6" stroke-width="3"/>
+                    <text x="440" y="76" text-anchor="middle" fill="#14B8A6" font-size="14" font-family="Inter" font-weight="700">SCALE</text>
+                    <text x="440" y="92" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Inter">AI-First Org</text>
+                    <text x="440" y="135" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" font-family="Inter">Transform your team</text>
+                    
+                    <!-- Node 4: 2030 - BIGGER -->
+                    <circle cx="620" cy="80" r="44" fill="#14B8A6" stroke="#E5B92B" stroke-width="4"/>
+                    <text x="620" y="76" text-anchor="middle" fill="#191C1F" font-size="18" font-family="Inter" font-weight="800">2030</text>
+                    <text x="620" y="94" text-anchor="middle" fill="#191C1F" font-size="10" font-family="Inter" font-weight="500">1000 cos.</text>
+                    <text x="620" y="145" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="Inter">Industry leaders</text>
+                </svg>
+            </div>
+        </div>
+        <div class="page-footer"><p>EntendIA | Mission, Vision & Values</p></div>
+    </div>
+    
+    <!-- PAGE 4: VALUES - NO BORDERS -->
+    <div class="page">
+        <div class="bg-glow bg-glow-teal" style="bottom: -50px; right: -80px;"></div>
+        <div class="bg-glow bg-glow-amber" style="top: -50px; left: -80px; opacity: 0.15;"></div>
+        <div class="content">
+            <span class="section-label">Our Values</span>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">&#9889;</div>
+                    <h3>Results Over Theory</h3>
+                    <p>We measure success in business outcomes. Every engagement produces working AI skills within 5 weeks, or your investment back. No slides, no reports—just working solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#9711;</div>
+                    <h3>Radical Transparency</h3>
+                    <p>No black boxes, no mystery. We teach you how it works, why it works, and how to evolve it. Your AI knowledge stays with you forever.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#10084;</div>
+                    <h3>Human-Centered AI</h3>
+                    <p>AI should amplify people, not replace them. We design solutions that make teams more effective, creative, and fulfilled in their work.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">&#10004;</div>
+                    <h3>Ambitious Pragmatism</h3>
+                    <p>Dream big, execute practically. Every solution is grounded in your current reality while building toward your future potential.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer"><p>EntendIA | AI-First Digital Services | 2026</p></div>
+    </div>
+</body>
+</html>
