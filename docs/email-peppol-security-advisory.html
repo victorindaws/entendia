@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Seguridad Odoo - Peppol (CVE-2026-2228)</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Montserrat', Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .email-wrapper {
+            width: 100%;
+            background-color: #f4f4f4;
+            padding: 40px 0;
+        }
+        
+        .email-container {
+            max-width: 640px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(28, 38, 93, 0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1C265D 0%, #6B68FA 100%);
+            padding: 32px 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            height: 40px;
+            margin-bottom: 24px;
+        }
+        
+        .header-badge {
+            display: inline-block;
+            background-color: #E5B92B;
+            color: #1C265D;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .header h1 {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px;
+            color: #1C265D;
+        }
+        
+        .content h2 {
+            color: #6B68FA;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E5B92B;
+        }
+        
+        .content p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0 0 16px 0;
+            color: #1C265D;
+        }
+        
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(107, 104, 250, 0.08) 0%, rgba(138, 194, 219, 0.08) 100%);
+            border-left: 4px solid #6B68FA;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box.success {
+            background: linear-gradient(135deg, rgba(229, 185, 43, 0.1) 0%, rgba(229, 185, 43, 0.05) 100%);
+            border-left-color: #E5B92B;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Alert Box */
+        .alert-box {
+            background-color: #1C265D;
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        
+        .alert-box h3 {
+            color: #E5B92B;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 12px 0;
+        }
+        
+        .alert-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        /* Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        .info-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(28, 38, 93, 0.1);
+        }
+        
+        .info-table td:first-child {
+            font-weight: 600;
+            color: #6B68FA;
+            width: 35%;
+        }
+        
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 32px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #E5B92B;
+            color: #1C265D;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-note {
+            font-size: 13px;
+            color: rgba(28, 38, 93, 0.6);
+            margin-top: 12px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1C265D;
+            padding: 32px 40px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin: 0 0 8px 0;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: #8AC2DB;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 640px) {
+            .email-container {
+                margin: 0 16px;
+            }
+            .header, .content, .cta-section, .footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <!-- Header -->
+            <div class="header">
+                <img src="https://www.indaws.es/web/image/website/1/logo/Indaws?unique=c2c2c8a" alt="Indaws" class="logo">
+                <div class="header-badge">Aviso de Seguridad</div>
+                <h1>Vulnerabilidad Odoo Peppol</h1>
+                <p class="header-subtitle">CVE-2026-2228 | Severidad: Alta (7.5)</p>
+            </div>
+            
+            <!-- Content -->
+            <div class="content">
+                <!-- Key Message for Spanish Customers -->
+                <div class="section">
+                    <div class="highlight-box success">
+                        <p>Si tu empresa opera exclusivamente en Espana, esta vulnerabilidad NO te afecta. Espana utiliza su propio sistema de facturacion electronica (FacturaE / Veri*factu), no Peppol.</p>
+                    </div>
+                </div>
+                
+                <!-- What Happened -->
+                <div class="section">
+                    <h2>Que ha ocurrido</h2>
+                    <p>Odoo ha publicado un aviso de seguridad relacionado con su integracion Peppol, el sistema de facturacion electronica utilizado principalmente en paises nordicos, Belgica, Paises Bajos y otros mercados europeos.</p>
+                    <p>La vulnerabilidad permite que, al recibir una factura de devolucion a traves de Peppol, se creen automaticamente cuentas bancarias en el registro de la empresa sin validacion previa. Estas cuentas son creadas por el usuario "OdooBot" y, en determinadas circunstancias, podrian seleccionarse para pagos salientes.</p>
+                </div>
+                
+                <!-- Technical Details -->
+                <div class="section">
+                    <h2>Detalles tecnicos</h2>
+                    <table class="info-table">
+                        <tr>
+                            <td>CVE</td>
+                            <td>CVE-2026-2228</td>
+                        </tr>
+                        <tr>
+                            <td>Puntuacion CVSS</td>
+                            <td>7.5 (Alta)</td>
+                        </tr>
+                        <tr>
+                            <td>Ambito</td>
+                            <td>Integracion Peppol unicamente</td>
+                        </tr>
+                        <tr>
+                            <td>Explotabilidad</td>
+                            <td>Remota, sin autenticacion</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Spain Context -->
+                <div class="section">
+                    <h2>Por que Espana no esta afectada</h2>
+                    <p>El sistema de facturacion electronica en Espana es independiente de Peppol. Nuestro marco regulatorio se basa en el formato FacturaE y, con la entrada en vigor de la Ley Crea y Crece, se implementa el sistema Veri*factu para la comunicacion con la Agencia Tributaria.</p>
+                    <p>Si tu empresa utiliza Odoo para facturacion nacional, no tienes exposicion a esta vulnerabilidad. La integracion Peppol es un modulo especifico que solo se activa para operaciones con paises que utilizan dicha red.</p>
+                </div>
+                
+                <!-- Who IS Affected -->
+                <div class="alert-box">
+                    <h3>Quien debe actuar</h3>
+                    <p>Si tu empresa tiene operaciones internacionales con paises que utilizan Peppol (Belgica, Paises Bajos, paises nordicos, Italia, entre otros) y tienes activada esta integracion en Odoo, contacta con nuestro equipo para aplicar el parche correspondiente.</p>
+                </div>
+                
+                <!-- Our Response -->
+                <div class="section">
+                    <h2>Nuestra respuesta</h2>
+                    <p>Desde Indaws hemos validado los parches publicados por Odoo y ya estan disponibles para su aplicacion inmediata. La solucion implementada elimina la creacion automatica de cuentas bancarias desde facturas Peppol, registrandolas unicamente como informacion en el documento.</p>
+                    <p>Para clientes alojados en nuestra infraestructura, procederemos a aplicar las actualizaciones de forma coordinada. Si gestionas tu propia instalacion on-premise, contacta con nosotros para recibir asistencia en la aplicacion del parche.</p>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="cta-section">
+                <a href="mailto:soporte@indaws.es?subject=Consulta%20CVE-2026-2228%20Peppol" class="cta-button">Contactar con Soporte</a>
+                <p class="cta-note">Respuesta en menos de 24 horas laborables</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <img src="https://www.indaws.es/web/image/website/1/logo/Indaws?unique=c2c2c8a" alt="Indaws" class="footer-logo" style="filter: brightness(0) invert(1);">
+                <p>Indaws | Gold Partner Odoo</p>
+                <p><a href="https://www.indaws.es">www.indaws.es</a> | <a href="mailto:info@indaws.es">info@indaws.es</a></p>
+                <p style="margin-top: 16px; font-size: 11px;">Este comunicado se envia con caracter informativo a todos nuestros clientes.<br>Febrero 2026</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
