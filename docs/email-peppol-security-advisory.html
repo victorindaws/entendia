@@ -255,58 +255,58 @@
                 <!-- Key Message for Spanish Customers -->
                 <div class="section">
                     <div class="highlight-box success">
-                        <p>Si tu empresa opera exclusivamente en Espana, esta vulnerabilidad NO te afecta. Espana utiliza su propio sistema de facturacion electronica (FacturaE / Veri*factu), no Peppol.</p>
+                        <p>Si tu empresa opera exclusivamente en España, esta vulnerabilidad NO te afecta. España utiliza su propio sistema de facturación electrónica (FacturaE / Veri*factu), no Peppol.</p>
                     </div>
                 </div>
                 
                 <!-- What Happened -->
                 <div class="section">
-                    <h2>Que ha ocurrido</h2>
-                    <p>Odoo ha publicado un aviso de seguridad relacionado con su integracion Peppol, el sistema de facturacion electronica utilizado principalmente en paises nordicos, Belgica, Paises Bajos y otros mercados europeos.</p>
-                    <p>La vulnerabilidad permite que, al recibir una factura de devolucion a traves de Peppol, se creen automaticamente cuentas bancarias en el registro de la empresa sin validacion previa. Estas cuentas son creadas por el usuario "OdooBot" y, en determinadas circunstancias, podrian seleccionarse para pagos salientes.</p>
+                    <h2>Qué ha ocurrido</h2>
+                    <p>Odoo ha publicado un aviso de seguridad relacionado con su integración Peppol, el sistema de facturación electrónica utilizado principalmente en países nórdicos, Bélgica, Países Bajos y otros mercados europeos.</p>
+                    <p>La vulnerabilidad permite que, al recibir una factura de devolución a través de Peppol, se creen automáticamente cuentas bancarias en el registro de la empresa sin validación previa. Estas cuentas son creadas por el usuario "OdooBot" y, en determinadas circunstancias, podrían seleccionarse para pagos salientes.</p>
                 </div>
                 
                 <!-- Technical Details -->
                 <div class="section">
-                    <h2>Detalles tecnicos</h2>
+                    <h2>Detalles técnicos</h2>
                     <table class="info-table">
                         <tr>
                             <td>CVE</td>
                             <td>CVE-2026-2228</td>
                         </tr>
                         <tr>
-                            <td>Puntuacion CVSS</td>
+                            <td>Puntuación CVSS</td>
                             <td>7.5 (Alta)</td>
                         </tr>
                         <tr>
-                            <td>Ambito</td>
-                            <td>Integracion Peppol unicamente</td>
+                            <td>Ámbito</td>
+                            <td>Integración Peppol únicamente</td>
                         </tr>
                         <tr>
                             <td>Explotabilidad</td>
-                            <td>Remota, sin autenticacion</td>
+                            <td>Remota, sin autenticación</td>
                         </tr>
                     </table>
                 </div>
                 
                 <!-- Spain Context -->
                 <div class="section">
-                    <h2>Por que Espana no esta afectada</h2>
-                    <p>El sistema de facturacion electronica en Espana es independiente de Peppol. Nuestro marco regulatorio se basa en el formato FacturaE y, con la entrada en vigor de la Ley Crea y Crece, se implementa el sistema Veri*factu para la comunicacion con la Agencia Tributaria.</p>
-                    <p>Si tu empresa utiliza Odoo para facturacion nacional, no tienes exposicion a esta vulnerabilidad. La integracion Peppol es un modulo especifico que solo se activa para operaciones con paises que utilizan dicha red.</p>
+                    <h2>Por qué España no está afectada</h2>
+                    <p>El sistema de facturación electrónica en España es independiente de Peppol. Nuestro marco regulatorio se basa en el formato FacturaE y, con la entrada en vigor de la Ley Crea y Crece, se implementa el sistema Veri*factu para la comunicación con la Agencia Tributaria.</p>
+                    <p>Si tu empresa utiliza Odoo para facturación nacional, no tienes exposición a esta vulnerabilidad. La integración Peppol es un módulo específico que solo se activa para operaciones con países que utilizan dicha red.</p>
                 </div>
                 
                 <!-- Who IS Affected -->
                 <div class="alert-box">
-                    <h3>Quien debe actuar</h3>
-                    <p>Si tu empresa tiene operaciones internacionales con paises que utilizan Peppol (Belgica, Paises Bajos, paises nordicos, Italia, entre otros) y tienes activada esta integracion en Odoo, contacta con nuestro equipo para aplicar el parche correspondiente.</p>
+                    <h3>Quién debe actuar</h3>
+                    <p>Si tu empresa tiene operaciones internacionales con países que utilizan Peppol (Bélgica, Países Bajos, países nórdicos, Italia, entre otros) y tienes activada esta integración en Odoo, contacta con nuestro equipo para aplicar el parche correspondiente.</p>
                 </div>
                 
                 <!-- Our Response -->
                 <div class="section">
                     <h2>Nuestra respuesta</h2>
-                    <p>Desde Indaws hemos validado los parches publicados por Odoo y ya estan disponibles para su aplicacion inmediata. La solucion implementada elimina la creacion automatica de cuentas bancarias desde facturas Peppol, registrandolas unicamente como informacion en el documento.</p>
-                    <p>Para clientes alojados en nuestra infraestructura, procederemos a aplicar las actualizaciones de forma coordinada. Si gestionas tu propia instalacion on-premise, contacta con nosotros para recibir asistencia en la aplicacion del parche.</p>
+                    <p>Desde Indaws hemos validado los parches publicados por Odoo y ya están disponibles para su aplicación inmediata. La solución implementada elimina la creación automática de cuentas bancarias desde facturas Peppol, registrándolas únicamente como información en el documento.</p>
+                    <p>Para clientes alojados en nuestra infraestructura, procederemos a aplicar las actualizaciones de forma coordinada. Si gestionas tu propia instalación on-premise, contacta con nosotros para recibir asistencia en la aplicación del parche.</p>
                 </div>
             </div>
             
@@ -321,7 +321,7 @@
                 <img src="https://www.indaws.es/web/image/website/1/logo/Indaws?unique=c2c2c8a" alt="Indaws" class="footer-logo" style="filter: brightness(0) invert(1);">
                 <p>Indaws | Gold Partner Odoo</p>
                 <p><a href="https://www.indaws.es">www.indaws.es</a> | <a href="mailto:info@indaws.es">info@indaws.es</a></p>
-                <p style="margin-top: 16px; font-size: 11px;">Este comunicado se envia con caracter informativo a todos nuestros clientes.<br>Febrero 2026</p>
+                <p style="margin-top: 16px; font-size: 11px;">Este comunicado se envía con carácter informativo a todos nuestros clientes.<br>Febrero 2026</p>
             </div>
         </div>
     </div>
